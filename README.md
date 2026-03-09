@@ -93,14 +93,13 @@ orchestrator는 `wiki-state.json`을 읽고 다음 작업을 정한다.
 ├── CODE_OF_CONDUCT.md
 ├── README.md
 ├── plan.md
-├── sources.md
 ├── spec.md
 ├── wiki-config.yaml
-├── wiki-memory.md
 └── wiki-state.json
 ```
 
 실제 위키 산출물은 `wiki-config.yaml`의 `output_path` 아래 생성된다.
+`sources.md`와 `wiki-memory.md`도 초기 실행 뒤 이 출력 폴더 아래에서 만들어진다.
 
 ```yaml
 output_path: "./output/harness"        # 독립 폴더
