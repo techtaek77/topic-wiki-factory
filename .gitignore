@@ -12,3 +12,5 @@ validation/
 **/wiki-memory.md
 **/sources.md
 **/reviewer-check.md
+!examples/**/wiki-memory.md
+!examples/**/sources.md
