@@ -1,0 +1,38 @@
+topic_name: "체스"
+topic_definition: "체스의 기본 규칙과 첫 학습 흐름"
+exclude_topics:
+  - "프로 기사급 오프닝 암기"
+domain_type: "knowledge"
+target_audience: "체스를 처음 배우는 성인"
+depth_level: "intro"
+output_path: "./examples/chess-intro/output"
+
+seed_material_paths: []
+
+official_url: ""
+github_url: ""
+reference_url: "https://www.chess.com/learn-how-to-play-chess"
+
+hitl:
+  confirm_scope_after_research: true
+  confirm_ia_before_writing: true
+
+models:
+  writer:       "claude-opus-4-6"
+  researcher:   "claude-sonnet-4-6"
+  reviewer:     "claude-sonnet-4-6"
+  updater:      "claude-sonnet-4-6"
+  freshness:    "claude-sonnet-4-6"
+  gap_finder:   "claude-sonnet-4-6"
+  orchestrator: "claude-haiku-4-5-20251001"
+  initializer:  "claude-haiku-4-5-20251001"
+  publisher:    "claude-haiku-4-5-20251001"
+  auditor:      "claude-haiku-4-5-20251001"
+
+max_revision_attempts: 3
+
+publish:
+  enabled: false
+  repo_url: ""
+  branch: "main"
+  commit_message_prefix: "wiki:"

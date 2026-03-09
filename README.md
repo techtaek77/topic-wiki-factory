@@ -12,6 +12,11 @@
 
 ![Example output preview](assets/readme-preview.svg)
 
+## 예시 보기
+
+실제 결과물이 어떤 식으로 생기는지 먼저 보고 싶다면 [examples/README.md](examples/README.md)를 보면 된다.
+지금은 `examples/chess-intro/` 하나를 넣어 두었고, 입력 설정부터 생성 결과까지 같이 볼 수 있다.
+
 ## 시작하기
 
 ### 방법 1. GitHub 템플릿으로 시작
@@ -85,6 +90,7 @@ orchestrator는 `wiki-state.json`을 읽고 다음 작업을 정한다.
 /
 ├── .claude/agents/       <- Claude Code 에이전트
 ├── assets/               <- README용 정적 자산
+├── examples/             <- 보여주기용 샘플 위키
 ├── prompts/              <- 타 런타임용 프롬프트
 ├── templates/            <- 문서 템플릿과 스키마 예시
 ├── CONTRIBUTING.md
