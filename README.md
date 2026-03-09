@@ -23,7 +23,7 @@
 ### 방법 2. 직접 클론
 
 ```bash
-git clone https://github.com/your-repo/topic-wiki-factory my-wiki
+git clone https://github.com/techtaek77/topic-wiki-factory my-wiki
 cd my-wiki
 ```
 
@@ -85,7 +85,6 @@ orchestrator는 `wiki-state.json`을 읽고 다음 작업을 정한다.
 /
 ├── .claude/agents/       <- Claude Code 에이전트
 ├── assets/               <- README용 정적 자산
-├── docs/                 <- 빈 출력용 자리 (.gitkeep만 유지)
 ├── prompts/              <- 타 런타임용 프롬프트
 ├── templates/            <- 문서 템플릿과 스키마 예시
 ├── CONTRIBUTING.md
@@ -98,8 +97,8 @@ orchestrator는 `wiki-state.json`을 읽고 다음 작업을 정한다.
 └── wiki-state.json
 ```
 
-실제 위키 산출물은 `wiki-config.yaml`의 `output_path` 아래 생성된다.
-`sources.md`와 `wiki-memory.md`도 초기 실행 뒤 이 출력 폴더 아래에서 만들어진다.
+루트의 `wiki-config.yaml`과 `wiki-state.json`은 의도적으로 빈 시작 상태로 들어 있다.
+샘플 위키 산출물은 공개 저장소에 포함하지 않으며, 실제 문서와 `docs/`, `sources.md`, `wiki-memory.md`는 첫 실행 뒤 `output_path` 아래 생성된다.
 
 ```yaml
 output_path: "./output/harness"        # 독립 폴더
