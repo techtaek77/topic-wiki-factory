@@ -1,0 +1,102 @@
+# wiki-config.yaml
+# topic-wiki-factory 설정 파일
+# wiki-initializer가 질문 답변을 바탕으로 자동 생성한다.
+# 직접 편집도 가능하다.
+
+# ─────────────────────────────────────
+# 필수 (5개)
+# ─────────────────────────────────────
+
+topic_name: "Harness"
+# 예: "Harness", "체스", "n8n", "알고리즘"
+
+topic_definition: "Harness CI/CD 플랫폼"
+# 같은 이름의 다른 의미가 있으면 여기서 이번 위키의 뜻을 한 줄로 고정한다.
+
+exclude_topics:
+  - "AI 에이전트 실행 계층으로서의 하네스는 제외"
+# 같은 이름의 다른 의미 중 이번 위키에서 빼야 할 것들
+
+domain_type: "tool"
+# tool     → 소프트웨어/플랫폼/프레임워크 (공식 URL 있음, 버전 추적 필요)
+# knowledge → 개념/전략/도메인 지식 (공식 URL 없거나 약함, 정적)
+
+target_audience: "DevOps를 처음 배우는 백엔드 개발자"
+# 예: "체스 완전 초보", "투자 1년차", "React 입문자"
+
+depth_level: "practical"
+# intro     → 개념 중심, 실전 최소 (문서 8~10개)
+# practical → 바로 쓸 수 있는 수준 (문서 11~14개)
+# advanced  → 내부 구조 + 엣지 케이스 (문서 14~16개)
+
+output_path: "./output/harness"
+# 내 Obsidian 볼트: "03.Resources/하네스"
+# 독립 폴더:        "./output/harness"
+# 다른 repo 경로:   "../my-harness-wiki"
+
+seed_material_paths:
+  - "./notes/harness"
+# 먼저 참고할 로컬 메모/폴더 경로. researcher가 웹보다 먼저 읽는다.
+
+# ─────────────────────────────────────
+# tool 전용 (domain_type: tool 일 때만)
+# ─────────────────────────────────────
+
+official_url: "https://developer.harness.io"
+# 공식 문서 사이트. 없으면 빈 문자열 ""
+
+github_url: "https://github.com/harness/harness"
+# GitHub repo. 없으면 빈 문자열 ""
+
+# ─────────────────────────────────────
+# knowledge 전용 (domain_type: knowledge 일 때만)
+# ─────────────────────────────────────
+
+reference_url: ""
+# 참고 교재/규칙서/위키 URL. 없으면 빈 문자열 ""
+
+# ─────────────────────────────────────
+# 사람 확인 루프 (HITL)
+# ─────────────────────────────────────
+
+hitl:
+  confirm_scope_after_research: true
+  confirm_ia_before_writing: true
+# ambiguous topic이면 true 유지 권장
+
+# ─────────────────────────────────────
+# 모델 설정
+# Claude Code: 자동 적용
+# 다른 런타임: 권장값 참고용
+# ─────────────────────────────────────
+
+models:
+  writer:       "claude-opus-4-6"          # 문서 품질 핵심 → opus
+  researcher:   "claude-sonnet-4-6"        # 웹 판단 필요
+  reviewer:     "claude-sonnet-4-6"        # 품질 판단 필요
+  updater:      "claude-sonnet-4-6"        # 의존성 분석
+  freshness:    "claude-sonnet-4-6"        # 웹 비교
+  gap_finder:   "claude-sonnet-4-6"        # 공백 분석
+  orchestrator: "claude-haiku-4-5-20251001" # 단순 라우팅
+  initializer:  "claude-haiku-4-5-20251001" # 질문/저장
+  publisher:    "claude-haiku-4-5-20251001" # git 명령
+  auditor:      "claude-haiku-4-5-20251001" # 링크/구조 체크
+
+# ─────────────────────────────────────
+# 재시도 설정
+# ─────────────────────────────────────
+
+max_revision_attempts: 3
+# reviewer가 REVISE 판정을 이 횟수 초과 시 docs_blocked로 이동
+# 기본값: 3
+
+# ─────────────────────────────────────
+# GitHub 발행 설정 (wiki-publisher 사용 시)
+# ─────────────────────────────────────
+
+publish:
+  enabled: true
+  repo_url: "https://github.com/username/harness-wiki"
+  branch: "main"
+  commit_message_prefix: "wiki:"
+  # 커밋 메시지 예: "wiki: add pipeline.md"

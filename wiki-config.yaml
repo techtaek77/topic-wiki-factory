@@ -1,0 +1,44 @@
+# wiki-config.yaml
+# wiki-initializer가 자동으로 채워줍니다.
+# 또는 templates/wiki-config.example.yaml을 참고해서 직접 작성하세요.
+
+topic_name: ""
+topic_definition: ""
+exclude_topics: []
+domain_type: ""        # tool | knowledge
+target_audience: ""
+depth_level: ""        # intro | practical | advanced
+output_path: ""
+
+seed_material_paths: []
+
+# tool 전용
+official_url: ""
+github_url: ""
+
+# knowledge 전용
+reference_url: ""
+
+hitl:
+  confirm_scope_after_research: true
+  confirm_ia_before_writing: true
+
+models:
+  writer:       "claude-opus-4-6"
+  researcher:   "claude-sonnet-4-6"
+  reviewer:     "claude-sonnet-4-6"
+  updater:      "claude-sonnet-4-6"
+  freshness:    "claude-sonnet-4-6"
+  gap_finder:   "claude-sonnet-4-6"
+  orchestrator: "claude-haiku-4-5-20251001"
+  initializer:  "claude-haiku-4-5-20251001"
+  publisher:    "claude-haiku-4-5-20251001"
+  auditor:      "claude-haiku-4-5-20251001"
+
+max_revision_attempts: 3
+
+publish:
+  enabled: false
+  repo_url: ""
+  branch: "main"
+  commit_message_prefix: "wiki:"

@@ -1,0 +1,14 @@
+.DS_Store
+Thumbs.db
+*.log
+
+.env
+.env.*
+
+.claude/settings.local.json
+
+validation/
+
+**/wiki-memory.md
+**/sources.md
+**/reviewer-check.md

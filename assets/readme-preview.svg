@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" fill="none">
+  <rect width="1200" height="720" fill="#f4efe6"/>
+  <rect x="52" y="48" width="1096" height="624" rx="28" fill="#fffaf2" stroke="#161616" stroke-width="3"/>
+  <rect x="52" y="48" width="1096" height="72" rx="28" fill="#d7ecdb" stroke="#161616" stroke-width="3"/>
+  <circle cx="100" cy="84" r="10" fill="#ff7a59"/>
+  <circle cx="132" cy="84" r="10" fill="#f5bf4f"/>
+  <circle cx="164" cy="84" r="10" fill="#56c26a"/>
+  <text x="210" y="92" fill="#161616" font-family="'SFMono-Regular', Consolas, monospace" font-size="28">topic-wiki-factory preview</text>
+
+  <rect x="90" y="156" width="350" height="460" rx="20" fill="#162420"/>
+  <text x="118" y="204" fill="#d7ecdb" font-family="'SFMono-Regular', Consolas, monospace" font-size="24">Generated files</text>
+  <text x="118" y="250" fill="#9ed7ab" font-family="'SFMono-Regular', Consolas, monospace" font-size="22">output/</text>
+  <text x="138" y="286" fill="#f8f4ea" font-family="'SFMono-Regular', Consolas, monospace" font-size="21">index.md</text>
+  <text x="138" y="320" fill="#f8f4ea" font-family="'SFMono-Regular', Consolas, monospace" font-size="21">prerequisite-map.md</text>
+  <text x="138" y="354" fill="#f8f4ea" font-family="'SFMono-Regular', Consolas, monospace" font-size="21">glossary.md</text>
+  <text x="138" y="388" fill="#f8f4ea" font-family="'SFMono-Regular', Consolas, monospace" font-size="21">faq.md</text>
+  <text x="138" y="422" fill="#9ed7ab" font-family="'SFMono-Regular', Consolas, monospace" font-size="21">docs/</text>
+  <text x="158" y="456" fill="#f8f4ea" font-family="'SFMono-Regular', Consolas, monospace" font-size="21">concepts/pipeline.md</text>
+  <text x="158" y="490" fill="#f8f4ea" font-family="'SFMono-Regular', Consolas, monospace" font-size="21">concepts/stage.md</text>
+  <text x="158" y="524" fill="#f8f4ea" font-family="'SFMono-Regular', Consolas, monospace" font-size="21">guides/quick-start.md</text>
+  <text x="158" y="558" fill="#f8f4ea" font-family="'SFMono-Regular', Consolas, monospace" font-size="21">guides/first-pipeline.md</text>
+
+  <rect x="484" y="156" width="618" height="460" rx="20" fill="#fff" stroke="#161616" stroke-width="3"/>
+  <text x="524" y="214" fill="#161616" font-family="Georgia, serif" font-size="40">Harness</text>
+  <text x="524" y="256" fill="#4f4f4f" font-family="Georgia, serif" font-size="22">Code changes move through testing and delivery in one learning path.</text>
+
+  <text x="524" y="324" fill="#161616" font-family="'SFMono-Regular', Consolas, monospace" font-size="22">Why learn it</text>
+  <rect x="524" y="338" width="514" height="3" fill="#d7ecdb"/>
+  <text x="524" y="376" fill="#333" font-family="Arial, sans-serif" font-size="22">A beginner can see Pipeline, Stage, and Trigger as one connected flow</text>
+  <text x="524" y="408" fill="#333" font-family="Arial, sans-serif" font-size="22">instead of bouncing between scattered docs and release notes.</text>
+
+  <text x="524" y="470" fill="#161616" font-family="'SFMono-Regular', Consolas, monospace" font-size="22">Read in this order</text>
+  <rect x="524" y="484" width="514" height="3" fill="#f5bf4f"/>
+  <text x="524" y="522" fill="#333" font-family="Arial, sans-serif" font-size="22">1. quick-start</text>
+  <text x="524" y="554" fill="#333" font-family="Arial, sans-serif" font-size="22">2. pipeline and stage</text>
+  <text x="524" y="586" fill="#333" font-family="Arial, sans-serif" font-size="22">3. trigger and service-environment</text>
+
+  <rect x="820" y="84" width="248" height="44" rx="22" fill="#161616"/>
+  <text x="860" y="112" fill="#fffaf2" font-family="'SFMono-Regular', Consolas, monospace" font-size="20">Use this template</text>
+</svg>

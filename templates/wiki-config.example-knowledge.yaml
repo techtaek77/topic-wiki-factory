@@ -1,0 +1,33 @@
+# wiki-config.yaml — knowledge 유형 예시 (체스)
+
+topic_name: "체스"
+domain_type: "knowledge"
+target_audience: "체스를 처음 배우는 성인"
+depth_level: "intro"
+output_path: "03.Resources/체스"
+
+# tool 전용 필드는 비움
+official_url: ""
+github_url: ""
+
+reference_url: "https://www.chess.com/learn-how-to-play-chess"
+
+models:
+  writer:       "claude-opus-4-6"
+  researcher:   "claude-sonnet-4-6"
+  reviewer:     "claude-sonnet-4-6"
+  updater:      "claude-sonnet-4-6"
+  freshness:    "claude-sonnet-4-6"   # knowledge라도 필드는 유지 (미실행)
+  gap_finder:   "claude-sonnet-4-6"
+  orchestrator: "claude-haiku-4-5-20251001"
+  initializer:  "claude-haiku-4-5-20251001"
+  publisher:    "claude-haiku-4-5-20251001"
+  auditor:      "claude-haiku-4-5-20251001"
+
+max_revision_attempts: 3
+
+publish:
+  enabled: false          # 우선 로컬(Obsidian)에서만
+  repo_url: ""
+  branch: "main"
+  commit_message_prefix: "wiki:"

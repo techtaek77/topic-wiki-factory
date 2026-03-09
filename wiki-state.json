@@ -1,0 +1,17 @@
+{
+  "topic_name": "",
+  "output_path": "",
+  "phase": "init",
+  "scope_confirmed": false,
+  "ia_confirmed": false,
+  "docs_planned": [],
+  "docs_written": [],
+  "docs_to_revise": [],
+  "revision_reasons": {},
+  "revision_attempts": {},
+  "docs_blocked": [],
+  "docs_done": [],
+  "current_doc": null,
+  "last_updated": "",
+  "started_at": ""
+}
