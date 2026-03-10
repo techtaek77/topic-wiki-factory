@@ -17,7 +17,7 @@
 ## 예시 보기
 
 실제 결과물이 어떤 식으로 생기는지 먼저 보고 싶다면 [examples/README.md](examples/README.md)를 보면 된다.
-지금은 `examples/chess-intro/` 하나를 넣어 두었고, 입력 설정부터 생성 결과까지 같이 볼 수 있다.
+지금은 `examples/chess-intro/`, `examples/codex-101/` 두 개를 넣어 두었고, 입력 설정부터 생성 결과까지 같이 볼 수 있다.
 
 ## 시작하기
 

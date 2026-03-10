@@ -1,0 +1,39 @@
+topic_name: "Codex 101"
+topic_definition: "코딩 에이전트와 함께 작업하는 기본 흐름과 협업 습관"
+exclude_topics:
+  - "시시각각 바뀌는 제품 UI 튜토리얼"
+  - "요금제나 계정 정책 상세"
+domain_type: "tool"
+target_audience: "코딩 에이전트를 처음 실무에 붙여보는 개발자"
+depth_level: "intro"
+output_path: "./examples/codex-101/output"
+
+seed_material_paths: []
+
+official_url: "https://openai.com"
+github_url: ""
+reference_url: ""
+
+hitl:
+  confirm_scope_after_research: true
+  confirm_ia_before_writing: true
+
+models:
+  writer:       "claude-opus-4-6"
+  researcher:   "claude-sonnet-4-6"
+  reviewer:     "claude-sonnet-4-6"
+  updater:      "claude-sonnet-4-6"
+  freshness:    "claude-sonnet-4-6"
+  gap_finder:   "claude-sonnet-4-6"
+  orchestrator: "claude-haiku-4-5-20251001"
+  initializer:  "claude-haiku-4-5-20251001"
+  publisher:    "claude-haiku-4-5-20251001"
+  auditor:      "claude-haiku-4-5-20251001"
+
+max_revision_attempts: 3
+
+publish:
+  enabled: false
+  repo_url: ""
+  branch: "main"
+  commit_message_prefix: "wiki:"
