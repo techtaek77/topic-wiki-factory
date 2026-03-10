@@ -63,6 +63,17 @@ def first_unfinished_doc(state):
     return None
 
 
+def choose_next_action_for_writing(state):
+    next_doc = state["docs_to_revise"][0] if state["docs_to_revise"] else first_unfinished_doc(state)
+    if next_doc is None:
+        state["phase"] = "reviewing"
+        state["current_doc"] = None
+        return "wiki-reviewer"
+    state["phase"] = "writing"
+    state["current_doc"] = next_doc
+    return f'wiki-writer:{next_doc["slug"]}'
+
+
 def promote_blocked_docs(state, max_revision_attempts):
     remaining = []
     for doc in state["docs_to_revise"]:
@@ -73,6 +84,31 @@ def promote_blocked_docs(state, max_revision_attempts):
         else:
             remaining.append(doc)
     state["docs_to_revise"] = remaining
+
+
+def handle_planning(state, hitl):
+    state["phase"] = "planning"
+    if not state["docs_planned"]:
+        state["current_doc"] = None
+        return "plan-docs"
+    if state["ia_confirmed"]:
+        return choose_next_action_for_writing(state)
+    if hitl.get("confirm_ia_before_writing", True):
+        state["current_doc"] = None
+        return "request-ia-confirmation"
+    state["ia_confirmed"] = True
+    return choose_next_action_for_writing(state)
+
+
+def handle_scoping(state, hitl):
+    state["phase"] = "scoping"
+    if state["scope_confirmed"]:
+        return handle_planning(state, hitl)
+    if hitl.get("confirm_scope_after_research", True):
+        state["current_doc"] = None
+        return "request-scope-confirmation"
+    state["scope_confirmed"] = True
+    return handle_planning(state, hitl)
 
 
 def evaluate(config, state, context):
@@ -96,56 +132,25 @@ def evaluate(config, state, context):
 
     if phase == "init":
         if sources_exists:
-            state["phase"] = "scoping"
-            action = "request-scope-confirmation" if hitl.get("confirm_scope_after_research", True) else "plan-docs"
-            if not hitl.get("confirm_scope_after_research", True):
-                state["scope_confirmed"] = True
-                state["phase"] = "planning"
+            action = handle_scoping(state, hitl)
         else:
             state["phase"] = "researching"
             action = "wiki-researcher"
 
     elif phase == "researching":
         if sources_exists:
-            state["phase"] = "scoping"
-            action = "request-scope-confirmation" if hitl.get("confirm_scope_after_research", True) else "plan-docs"
-            if not hitl.get("confirm_scope_after_research", True):
-                state["scope_confirmed"] = True
-                state["phase"] = "planning"
+            action = handle_scoping(state, hitl)
         else:
             action = "wiki-researcher"
 
     elif phase == "scoping":
-        if hitl.get("confirm_scope_after_research", True):
-            action = "request-scope-confirmation"
-        else:
-            state["scope_confirmed"] = True
-            state["phase"] = "planning"
-            action = "plan-docs"
+        action = handle_scoping(state, hitl)
 
     elif phase == "planning":
-        if hitl.get("confirm_ia_before_writing", True):
-            action = "request-ia-confirmation"
-        else:
-            state["ia_confirmed"] = True
-            state["phase"] = "writing"
-            next_doc = state["docs_to_revise"][0] if state["docs_to_revise"] else first_unfinished_doc(state)
-            if next_doc is None:
-                state["phase"] = "reviewing"
-                action = "wiki-reviewer"
-            else:
-                state["current_doc"] = next_doc
-                action = f'wiki-writer:{next_doc["slug"]}'
+        action = handle_planning(state, hitl)
 
     elif phase == "writing":
-        next_doc = state["docs_to_revise"][0] if state["docs_to_revise"] else first_unfinished_doc(state)
-        if next_doc is None:
-            state["phase"] = "reviewing"
-            state["current_doc"] = None
-            action = "wiki-reviewer"
-        else:
-            state["current_doc"] = next_doc
-            action = f'wiki-writer:{next_doc["slug"]}'
+        action = choose_next_action_for_writing(state)
 
     elif phase == "reviewing":
         if state["docs_to_revise"]:
@@ -185,9 +190,10 @@ def check_required_snippets():
     failures = []
     for path, snippets in REQUIRED_SNIPPETS.items():
         content = path.read_text()
+        label = path.relative_to(ROOT).as_posix()
         for snippet in snippets:
             if snippet not in content:
-                failures.append(f"{path.name}: missing snippet -> {snippet}")
+                failures.append(f"{label}: missing snippet -> {snippet}")
     return failures
 
 

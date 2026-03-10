@@ -72,6 +72,78 @@
     }
   },
   {
+    "name": "scoping_with_confirmed_scope_resumes_planning",
+    "config": {
+      "hitl": {
+        "confirm_scope_after_research": true,
+        "confirm_ia_before_writing": true
+      },
+      "publish": {
+        "enabled": false
+      },
+      "max_revision_attempts": 3
+    },
+    "state": {
+      "phase": "scoping",
+      "scope_confirmed": true,
+      "ia_confirmed": false,
+      "docs_planned": [],
+      "docs_written": [],
+      "docs_to_revise": [],
+      "revision_reasons": {},
+      "revision_attempts": {},
+      "docs_blocked": [],
+      "docs_done": [],
+      "current_doc": null
+    },
+    "context": {
+      "sources_exists": true
+    },
+    "expected": {
+      "phase": "planning",
+      "action": "plan-docs",
+      "scope_confirmed": true,
+      "ia_confirmed": false,
+      "current_doc": null
+    }
+  },
+  {
+    "name": "planning_without_docs_planned_requests_ia_design_first",
+    "config": {
+      "hitl": {
+        "confirm_scope_after_research": false,
+        "confirm_ia_before_writing": false
+      },
+      "publish": {
+        "enabled": false
+      },
+      "max_revision_attempts": 3
+    },
+    "state": {
+      "phase": "planning",
+      "scope_confirmed": true,
+      "ia_confirmed": false,
+      "docs_planned": [],
+      "docs_written": [],
+      "docs_to_revise": [],
+      "revision_reasons": {},
+      "revision_attempts": {},
+      "docs_blocked": [],
+      "docs_done": [],
+      "current_doc": null
+    },
+    "context": {
+      "sources_exists": true
+    },
+    "expected": {
+      "phase": "planning",
+      "action": "plan-docs",
+      "scope_confirmed": true,
+      "ia_confirmed": false,
+      "current_doc": null
+    }
+  },
+  {
     "name": "planning_without_hitl_auto_enters_writing",
     "config": {
       "hitl": {
@@ -87,6 +159,44 @@
       "phase": "planning",
       "scope_confirmed": true,
       "ia_confirmed": false,
+      "docs_planned": [
+        { "slug": "index", "title": "SDD", "kind": "fixed", "path": "index.md" }
+      ],
+      "docs_written": [],
+      "docs_to_revise": [],
+      "revision_reasons": {},
+      "revision_attempts": {},
+      "docs_blocked": [],
+      "docs_done": [],
+      "current_doc": null
+    },
+    "context": {
+      "sources_exists": true
+    },
+    "expected": {
+      "phase": "writing",
+      "action": "wiki-writer:index",
+      "scope_confirmed": true,
+      "ia_confirmed": true,
+      "current_doc": "index"
+    }
+  },
+  {
+    "name": "planning_with_confirmed_ia_resumes_writing",
+    "config": {
+      "hitl": {
+        "confirm_scope_after_research": true,
+        "confirm_ia_before_writing": true
+      },
+      "publish": {
+        "enabled": false
+      },
+      "max_revision_attempts": 3
+    },
+    "state": {
+      "phase": "planning",
+      "scope_confirmed": true,
+      "ia_confirmed": true,
       "docs_planned": [
         { "slug": "index", "title": "SDD", "kind": "fixed", "path": "index.md" }
       ],
@@ -142,6 +252,55 @@
       "docs_blocked": [],
       "docs_done": [
         { "slug": "index", "title": "Harness", "kind": "fixed", "path": "index.md" }
+      ],
+      "current_doc": null
+    },
+    "context": {
+      "sources_exists": true
+    },
+    "expected": {
+      "phase": "writing",
+      "action": "wiki-writer:quick-start",
+      "scope_confirmed": true,
+      "ia_confirmed": true,
+      "current_doc": "quick-start"
+    }
+  },
+  {
+    "name": "legacy_string_arrays_are_normalized",
+    "config": {
+      "hitl": {
+        "confirm_scope_after_research": false,
+        "confirm_ia_before_writing": false
+      },
+      "publish": {
+        "enabled": false
+      },
+      "max_revision_attempts": 3
+    },
+    "state": {
+      "phase": "writing",
+      "scope_confirmed": true,
+      "ia_confirmed": true,
+      "docs_planned": [
+        { "slug": "index", "title": "Harness", "kind": "fixed", "path": "index.md" },
+        { "slug": "quick-start", "title": "Quick Start", "kind": "guide", "path": "docs/guides/quick-start.md" }
+      ],
+      "docs_written": [
+        "index"
+      ],
+      "docs_to_revise": [
+        "quick-start"
+      ],
+      "revision_reasons": {
+        "quick-start": "needs clearer example"
+      },
+      "revision_attempts": {
+        "quick-start": 1
+      },
+      "docs_blocked": [],
+      "docs_done": [
+        "index"
       ],
       "current_doc": null
     },

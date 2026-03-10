@@ -19,8 +19,11 @@ python3 scripts/orchestrator_harness.py
 현재 포함된 시나리오:
 
 - `init`에서 `sources.md`가 없으면 `wiki-researcher`로 가는지
+- `scope_confirmed=true`, `ia_confirmed=true` 상태로 재실행해도 확인 루프에 안 갇히는지
+- `planning`에서 `docs_planned`가 비어 있으면 writer로 건너뛰지 않고 IA 설계를 먼저 요구하는지
 - `HITL=false`일 때 `scoping`과 `planning`이 자동 진행되는지
 - `docs_to_revise`가 일반 문서보다 우선되는지
+- 예전 샘플처럼 문자열 배열 state도 객체 배열로 정규화되는지
 - revision limit 초과 시 `docs_blocked`로 빠지는지
 - `reviewing` 이후 `publishing` / `done` 분기가 맞는지
 
