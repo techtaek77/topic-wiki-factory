@@ -58,7 +58,7 @@ If the process stops halfway through, rerunning it will skip documents that are 
 If both `hitl.confirm_scope_after_research` and `hitl.confirm_ia_before_writing` are `false`, it will move through those phases without asking for human confirmation.
 The default execution model is still sequential automation, not parallel writer execution.
 
-The default manual flow looks like this:
+The default manual flow with `hitl` confirmations enabled looks like this:
 
 1. `wiki-initializer`
 2. `wiki-researcher`
@@ -81,11 +81,12 @@ After changing `publish.enabled: true` in `wiki-config.yaml`, run:
 ## Handling ambiguous topic names
 
 Some topics, like `Harness`, may refer to a product name or a general concept.
-This template checks ambiguity twice.
+The researcher compares possible meanings first, then the follow-up confirmation depends on your `hitl` settings.
 
 1. The researcher compares possible meanings.
-2. The orchestrator asks for human confirmation after research.
-3. The IA is confirmed once more before writing starts.
+2. If `hitl.confirm_scope_after_research=true`, the orchestrator asks for human confirmation after research.
+3. If `hitl.confirm_ia_before_writing=true`, the IA is confirmed once more before writing starts.
+4. If either flag is `false`, that confirmation step auto-advances instead.
 
 That helps prevent the classic "I meant execution harness, why did I get CI/CD docs?" moment.
 

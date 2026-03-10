@@ -58,7 +58,7 @@ orchestrator는 `wiki-state.json`을 읽고 다음 작업을 정한다.
 `hitl.confirm_scope_after_research`, `hitl.confirm_ia_before_writing` 둘 다 `false`면 사람 확인 단계 없이 다음 phase로 자동 진행한다.
 다만 기본 실행 모델은 병렬 writer가 아니라, 문서 1개씩 고르는 순차 자동 진행이다.
 
-수동으로 돌릴 때의 기본 순서는 아래와 같다.
+`hitl` 확인을 켜 둔 수동 흐름의 기본 순서는 아래와 같다.
 
 1. `wiki-initializer`
 2. `wiki-researcher`
@@ -80,11 +80,13 @@ orchestrator는 `wiki-state.json`을 읽고 다음 작업을 정한다.
 
 ## 같은 이름, 다른 의미 처리
 
-`Harness`처럼 같은 이름이 제품명일 수도 있고 일반 개념일 수도 있는 주제는 두 번 확인한다.
+`Harness`처럼 같은 이름이 제품명일 수도 있고 일반 개념일 수도 있는 주제는 researcher가 먼저 해석 후보를 비교한다.
+그다음 확인 단계는 `hitl` 설정에 따라 달라진다.
 
 1. researcher가 해석 후보를 비교한다.
-2. orchestrator가 research 이후 범위를 사람에게 다시 확인받는다.
-3. 글쓰기 전에 IA를 한 번 더 확인한다.
+2. `hitl.confirm_scope_after_research=true`면 orchestrator가 research 이후 범위를 사람에게 다시 확인받는다.
+3. `hitl.confirm_ia_before_writing=true`면 글쓰기 전에 IA를 한 번 더 확인한다.
+4. 둘 중 하나라도 `false`면 해당 단계는 사람 확인 없이 자동 진행된다.
 
 덕분에 "말은 하네스인데 갑자기 CI/CD 문서가 튀어나오는 사고"를 줄일 수 있다.
 
