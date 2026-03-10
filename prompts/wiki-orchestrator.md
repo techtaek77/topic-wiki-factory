@@ -90,7 +90,7 @@
 IA 설계 후:
 
 - `hitl.confirm_ia_before_writing=true` 이고 `ia_confirmed=false` 이면 `docs_planned`를 사용자에게 보여주고 확인 요청
-- `hitl.confirm_ia_before_writing=false` 이면 사용자 확인 없이 `ia_confirmed=true`, `phase=writing`
+- `hitl.confirm_ia_before_writing=false` 이면 사용자 확인 없이 `ia_confirmed=true`, `phase="writing"`으로
 - 사용자가 승인하면 `ia_confirmed=true`, `phase=writing`
 - 사용자가 수정 요청하면 `docs_planned`를 갱신한 뒤 다시 확인
 

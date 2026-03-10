@@ -158,4 +158,5 @@ output_path: "../my-chess-wiki/docs"   # 다른 repo
 - `templates/` -> 문서 구조 예시와 스키마 상세
 - `spec.md` -> 설계 문서
 - `parallel-writer-spec.md` -> 병렬 writer 확장 설계
+- `tests/README.md` -> orchestrator acceptance harness 설명
 - `plan.md` -> 개발 계획

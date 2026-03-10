@@ -160,4 +160,5 @@ If you change prompts, keep `.claude/agents/` and `prompts/` in sync.
 - `templates/` -> document structure and schema examples
 - `spec.md` -> design spec
 - `parallel-writer-spec.md` -> parallel writer extension proposal
+- `tests/README.md` -> orchestrator acceptance harness
 - `plan.md` -> development plan
