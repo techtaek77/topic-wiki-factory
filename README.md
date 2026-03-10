@@ -1,5 +1,7 @@
 # Topic Wiki Factory
 
+[English](README.en.md)
+
 어떤 주제든 파인만 구조로 정리된 학습형 위키를 30분 안에 만들 수 있게 돕는 AI 에이전트 템플릿이다.
 
 > "이게 뭔지" -> "왜 필요한지" -> "뭘 먼저 알아야 하는지" -> "어떻게 쓰는지"
@@ -53,6 +55,8 @@ initializer는 주제 정의, 제외 범위, 참고할 로컬 자료, 출력 경
 
 orchestrator는 `wiki-state.json`을 읽고 다음 작업을 정한다.
 중간에 멈췄다가 다시 실행해도 이미 끝난 문서는 다시 쓰지 않는다.
+`hitl.confirm_scope_after_research`, `hitl.confirm_ia_before_writing` 둘 다 `false`면 사람 확인 단계 없이 다음 phase로 자동 진행한다.
+다만 기본 실행 모델은 병렬 writer가 아니라, 문서 1개씩 고르는 순차 자동 진행이다.
 
 수동으로 돌릴 때의 기본 순서는 아래와 같다.
 
@@ -153,4 +157,5 @@ output_path: "../my-chess-wiki/docs"   # 다른 repo
 
 - `templates/` -> 문서 구조 예시와 스키마 상세
 - `spec.md` -> 설계 문서
+- `parallel-writer-spec.md` -> 병렬 writer 확장 설계
 - `plan.md` -> 개발 계획
