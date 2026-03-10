@@ -1,17 +1,13 @@
 # 첫 작업 바로 해보기
 
-> 작은 브랜치를 따고, 구현 하나 맡기고, review까지 받는 가장 짧은 루프를 연습하는 가이드다.
+> 작업할 폴더를 열고, 작은 브랜치를 만들고, 첫 요청을 넣고, diff를 확인한 뒤 커밋하는 가장 짧은 Codex 루프다.
 
 ---
 
 ## 왜 필요한가
 
-코딩 에이전트는 설명만 읽으면 감이 잘 안 온다.
-짧은 작업 하나를 끝까지 돌려보면 어디서 믿고 어디서 확인해야 하는지 금방 잡힌다.
-
-- 없으면: 막연히 “뭘 시키지?”에서 멈춘다.
-- 있으면: 브랜치, 구현, 리뷰의 기본 리듬을 한 번에 익힌다.
-- 비유: 악기 튜토리얼 보기 전에 도레미부터 눌러보는 느낌이다.
+처음엔 원리보다 순서가 중요하다.
+한 번 직접 따라 해보면 "아, 이 정도 크기로 맡기면 되는구나"가 훨씬 빨리 온다.
 
 ---
 
@@ -19,33 +15,82 @@
 
 | 개념 | 한 줄 설명 | 링크 |
 |------|-----------|------|
-| Agents and Context | 맡기는 일과 넘기는 배경을 같이 설계해야 한다. | [agents-and-context](../concepts/agents-and-context.md) |
-| Review vs Implementation | 구현과 검토는 목적이 다르다. | [review-vs-implementation](../concepts/review-vs-implementation.md) |
+| Agents and Context | 목표와 범위를 같이 줘야 덜 헤맨다. | [agents-and-context](../concepts/agents-and-context.md) |
+| Review vs Implementation | 구현 요청과 리뷰 요청은 따로 쓰는 편이 좋다. | [review-vs-implementation](../concepts/review-vs-implementation.md) |
 
 ---
 
 ## 어떻게 적용하는가
 
-### 예시
+### 1. 작업할 폴더를 연다
 
-1. 작은 수정 하나를 고른다. 예: README 문장 1개 다듬기
-2. feature branch를 만든다.
-3. 구현 요청에는 목표, 수정 파일, 건드리면 안 되는 범위를 같이 준다.
-4. 변경이 나오면 diff를 보고 위험한 부분부터 읽는다.
-5. 필요하면 review 모드로 다시 한 번 확인시킨다.
-6. 괜찮으면 커밋하고 푸시한다.
+Codex는 지금 열린 폴더를 기준으로 본다.
+그래서 먼저 수정할 저장소 폴더에 들어와 있어야 한다.
+
+```bash
+pwd
+git status
+```
+
+### 2. 작은 브랜치를 만든다
+
+main에서 바로 시작하지 말고 작업 단위별 브랜치를 먼저 만든다.
+
+```bash
+git checkout -b codex/readme-tidy
+```
+
+### 3. 첫 요청은 아주 작게 넣는다
+
+처음부터 큰 기능 전체를 맡기지 말고, README 한 문단이나 테스트 한 줄처럼 작은 작업으로 감을 잡는다.
+
+예시 요청:
+
+```text
+README 첫 문단을 더 명확하게 다듬어줘.
+README.md만 수정하고 다른 파일은 건드리지 마.
+수정 후에는 바뀐 내용을 diff 기준으로 설명해줘.
+```
+
+### 4. 결과는 diff부터 본다
+
+수정이 끝났다고 바로 믿지 말고 무엇이 바뀌었는지 먼저 확인한다.
+
+```bash
+git diff
+```
+
+### 5. 필요하면 리뷰를 한 번 더 건다
+
+구조가 바뀌었거나 불안하면 구현 다음에 review를 따로 요청한다.
+
+예시 요청:
+
+```text
+방금 변경을 리뷰해줘.
+버그, 회귀 위험, 빠진 테스트 위주로 봐줘.
+```
+
+### 6. 괜찮으면 커밋하고 푸시한다
+
+```bash
+git add README.md
+git commit -m "Clarify README intro"
+git push -u origin codex/readme-tidy
+```
 
 ### 핵심 포인트
 
-- 첫 작업은 아주 작게 잡는다.
-- 구현과 리뷰를 분리하면 결과 해석이 쉬워진다.
-- “왜 이 변경을 하는지” 한 줄만 있어도 품질이 많이 달라진다.
+- 시작은 항상 현재 폴더와 git 상태 확인부터
+- 첫 작업은 작게
+- 구현 후에는 diff 확인
+- main 대신 feature branch
 
 ### 자주 하는 실수
 
-- 첫 작업부터 큰 기능을 통째로 맡김 -> 작은 수정으로 감을 먼저 잡는다.
-- diff를 안 보고 바로 믿음 -> 위험한 파일부터 훑는다.
-- main에서 바로 작업함 -> 브랜치를 먼저 딴다.
+- 작업 폴더가 아닌 곳에서 시작함 -> `pwd`, `git status` 먼저 본다.
+- 첫 요청이 너무 큼 -> 파일 1~2개 수준으로 줄인다.
+- diff를 안 봄 -> 결과보다 변경 내용을 먼저 확인한다.
 
 ---
 
@@ -53,8 +98,8 @@
 
 | 문서 | 이유 |
 |------|------|
-| [review-vs-implementation](../concepts/review-vs-implementation.md) | 요청을 어떻게 나눌지 더 또렷하게 본다. |
-| [faq](../../faq.md) | 처음 쓸 때 자주 막히는 지점을 정리한다. |
+| [faq](../../faq.md) | 처음 쓰며 드는 현실적인 질문을 바로 해결한다. |
+| [review-vs-implementation](../concepts/review-vs-implementation.md) | 언제 리뷰를 따로 요청할지 더 또렷하게 본다. |
 
 ---
 
