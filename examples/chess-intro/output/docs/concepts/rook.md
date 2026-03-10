@@ -19,8 +19,8 @@
 
 | 개념 | 한 줄 설명 | 링크 |
 |------|-----------|------|
-| 체스판 좌표 | `a1`부터 `h8`까지 위치를 읽는 방법이다. | [[quick-start]] |
-| Open File | 룩이 길게 움직이기 좋은 빈 세로줄이다. | [[glossary#Open File]] |
+| 체스판 좌표 | `a1`부터 `h8`까지 위치를 읽는 방법이다. | [quick-start](../guides/quick-start.md) |
+| Open File | 룩이 길게 움직이기 좋은 빈 세로줄이다. | [Open File](../../glossary.md#open-file) |
 
 ---
 
@@ -51,9 +51,9 @@
 
 | 문서 | 이유 |
 |------|------|
-| [[quick-start]] | 실제로 말을 놓고 첫 수를 두며 좌표 감각을 익힌다. |
-| [[faq]] | 체크와 기본 규칙에서 자주 막히는 부분을 먼저 푼다. |
+| [quick-start](../guides/quick-start.md) | 실제로 말을 놓고 첫 수를 두며 좌표 감각을 익힌다. |
+| [faq](../../faq.md) | 체크와 기본 규칙에서 자주 막히는 부분을 먼저 푼다. |
 
 ---
 
-*관련 용어: [[glossary#Rook]] · [[glossary#Open File]]*
+*관련 용어: [Rook](../../glossary.md#rook) · [Open File](../../glossary.md#open-file)*
