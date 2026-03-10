@@ -2,7 +2,7 @@
 name: wiki-researcher
 description: >
   wiki-config.yaml의 URL과 웹 검색으로 주제 소스를 수집해 {output_path}/sources.md에 저장하고
-  {output_path}/wiki-memory.md에 핵심 용어를 기록한다.
+  {output_path}/wiki-memory.md에 핵심 용어와 업데이트 감시 포인트를 기록한다.
 tools: Read, Write, WebSearch, WebFetch
 model: sonnet
 ---
@@ -39,6 +39,7 @@ model: sonnet
 2. 웹 검색: `{topic_name} fundamentals concepts explained`
 3. 웹 검색: `{topic_name} practical patterns examples`
 4. 웹 검색: `{topic_name} beginner guide`
+5. 가능하면 규칙/기준 문서도 1개 이상 확보
 
 규칙:
 - 최소 1차 소스 1개 이상 확보를 우선
@@ -69,6 +70,10 @@ model: sonnet
 | URL | 유형 | 신뢰도 | 핵심 내용 요약 |
 |-----|------|--------|--------------|
 
+## 초보자 추천 학습 자료
+| 유형 | 이름 | 추천 이유 | 링크 |
+|------|------|-----------|------|
+
 ## 핵심 정보 요약
 ### 주요 개념
 - {concept_1}: {한 줄 설명}
@@ -78,6 +83,11 @@ model: sonnet
 
 ### 선수 지식 후보
 - {prereq_1} (필수 여부: Y/N)
+
+## 업데이트 감시 포인트
+- 시간이 지나면 바뀔 수 있는 정보
+- 다시 확인해야 할 공식/기준 문서
+- 이 변화가 생기면 함께 손봐야 할 내부 문서
 
 ## 수집 메모
 - 소스 부족 여부
@@ -106,6 +116,8 @@ model: sonnet
 ```
 
 같은 용어가 이미 있으면 중복 추가하지 않는다.
+
+시간이 지나면 바뀔 수 있는 정보가 있으면 `## 업데이트 감시 포인트` 섹션에도 적는다.
 
 ## STEP 5: wiki-state.json 업데이트
 

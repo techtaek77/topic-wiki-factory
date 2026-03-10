@@ -30,6 +30,12 @@
 
 HIGH + MID만 docs_to_revise에 추가.
 
+추가 규칙:
+- 개념/규칙/핵심 흐름이 바뀌면 `index.md`, `prerequisite-map.md`, `glossary.md`, `faq.md`를 우선 확인
+- knowledge 유형에서 입문 허브 문서(`basics`, `intro`, `start-here` 계열)가 있으면 거의 항상 영향 후보로 본다
+- 외부 학습 자료, 공식 기준, 추천 링크가 바뀐 경우 `sources.md`도 함께 확인한다
+- `sources.md`가 영향을 받는 경우에는 docs_to_revise 추가와 별개로 `wiki-researcher` 재실행 필요 여부를 출력한다
+
 **3. wiki-state.json 업데이트**
 ```json
 "docs_to_revise": ["{slug}", "{영향 문서들}"],
@@ -50,10 +56,11 @@ HIGH + MID만 docs_to_revise에 추가.
   🟢 LOW:  {n}개 — 수정 불필요
 
 ✅ docs_to_revise 추가: {n}개
+📚 sources.md 재점검: {필요/불필요}
 ▶ wiki-orchestrator를 실행하여 재작성을 진행하세요.
 ```
 
 ## 주의사항
 
-- index.md, glossary.md, prerequisite-map.md는 거의 항상 영향받음 → 우선 확인
+- index.md, glossary.md, prerequisite-map.md, faq.md는 거의 항상 영향받음 → 우선 확인
 - 재귀 탐지는 1단계만 (무한 루프 방지)

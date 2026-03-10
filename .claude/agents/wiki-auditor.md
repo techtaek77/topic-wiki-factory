@@ -2,7 +2,7 @@
 name: wiki-auditor
 description: >
   {output_path}/ 아래 계획 문서를 점검해 끊긴 링크, 고아 문서, Feynman 구조 미준수,
-  glossary 누락 링크를 심각도와 함께 출력한다.
+  glossary 누락 링크, 초보자 진입 문서와 자료 모음 품질을 심각도와 함께 출력한다.
 tools: Read, Glob, Grep
 model: haiku
 ---
@@ -20,7 +20,7 @@ model: haiku
 
 `wiki-config.yaml`에서 output_path 읽기 → `{output_path}/` 아래 계획 문서 전체 MD 파일 목록 확인.
 
-## STEP 2: 4가지 탐지 항목
+## STEP 2: 6가지 탐지 항목
 
 ### 탐지 1: 끊긴 링크 (critical)
 `[[slug]]` 패턴 grep → 실제 파일 존재 여부 확인.
@@ -43,6 +43,12 @@ model: haiku
 ### 탐지 4: glossary 미연결 용어 (warning)
 `wiki-memory.md`의 확정 용어 목록 → 각 문서에서 용어 언급이 있으나 `[[glossary]]` 링크가 없는 경우.
 
+### 탐지 5: 초보자 진입 문서 부재 (warning)
+knowledge 유형 + 초보자 대상인데 `basics`, `intro`, `start-here` 성격의 문서가 없으면 경고.
+
+### 탐지 6: 자료 모음 빈약 (warning)
+`sources.md`에 초보자 추천 학습 자료 또는 업데이트 감시 포인트가 없으면 경고.
+
 ## 출력 형식
 
 ```
@@ -62,4 +68,5 @@ model: haiku
 ## 주의사항
 
 - docs_done이 아닌 파일도 감사 대상 포함
+- `sources.md`는 Feynman 구조 대신 자료 모음 품질을 본다
 - 탐지 결과는 docs_to_revise에 자동 추가하지 않음
