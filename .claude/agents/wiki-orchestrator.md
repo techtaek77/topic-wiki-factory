@@ -58,13 +58,15 @@ phase = "researching"
   → 없으면 wiki-researcher 재호출
 
 phase = "scoping"
-  → sources.md의 "주제 해석 초안"을 요약해 사용자 확인 요청
+  → hitl.confirm_scope_after_research = true 이면 sources.md의 "주제 해석 초안"을 요약해 사용자 확인 요청
+  → hitl.confirm_scope_after_research = false 이면 scope_confirmed = true, phase = "planning"
   → 승인되면 scope_confirmed = true, phase = "planning"
   → 수정 요청이면 wiki-config.yaml의 topic_definition / exclude_topics / seed_material_paths 반영 후 다시 확인
 
 phase = "planning"
   → docs_planned 설계
   → hitl.confirm_ia_before_writing = true 이고 ia_confirmed = false 이면 사용자에게 IA 확인 요청
+  → hitl.confirm_ia_before_writing = false 이면 ia_confirmed = true, phase = "writing"
   → 승인되면 ia_confirmed = true, phase = "writing"
   → 수정 요청이면 docs_planned 갱신 후 다시 확인
 
@@ -151,4 +153,5 @@ docs_planned:
 
 - state 파일 손상 시: "wiki-state-init" 명령으로 초기화 안내
 - docs_blocked 항목은 작성 대상에서 제외하고 사용자 수동 처리로 넘김
+- 기본 진행 모델은 "문서 1개씩 선택하는 순차 자동 진행"이다. 병렬 writer 실행은 현재 기본 전제가 아니다.
 - 매 호출마다 wiki-state.json을 읽고 저장한다

@@ -1,0 +1,334 @@
+[
+  {
+    "name": "init_without_sources_starts_research",
+    "config": {
+      "hitl": {
+        "confirm_scope_after_research": true,
+        "confirm_ia_before_writing": true
+      },
+      "publish": {
+        "enabled": false
+      },
+      "max_revision_attempts": 3
+    },
+    "state": {
+      "phase": "init",
+      "scope_confirmed": false,
+      "ia_confirmed": false,
+      "docs_planned": [],
+      "docs_written": [],
+      "docs_to_revise": [],
+      "revision_reasons": {},
+      "revision_attempts": {},
+      "docs_blocked": [],
+      "docs_done": [],
+      "current_doc": null
+    },
+    "context": {
+      "sources_exists": false
+    },
+    "expected": {
+      "phase": "researching",
+      "action": "wiki-researcher",
+      "scope_confirmed": false,
+      "ia_confirmed": false,
+      "current_doc": null
+    }
+  },
+  {
+    "name": "scoping_without_hitl_auto_advances",
+    "config": {
+      "hitl": {
+        "confirm_scope_after_research": false,
+        "confirm_ia_before_writing": true
+      },
+      "publish": {
+        "enabled": false
+      },
+      "max_revision_attempts": 3
+    },
+    "state": {
+      "phase": "scoping",
+      "scope_confirmed": false,
+      "ia_confirmed": false,
+      "docs_planned": [],
+      "docs_written": [],
+      "docs_to_revise": [],
+      "revision_reasons": {},
+      "revision_attempts": {},
+      "docs_blocked": [],
+      "docs_done": [],
+      "current_doc": null
+    },
+    "context": {
+      "sources_exists": true
+    },
+    "expected": {
+      "phase": "planning",
+      "action": "plan-docs",
+      "scope_confirmed": true,
+      "ia_confirmed": false,
+      "current_doc": null
+    }
+  },
+  {
+    "name": "planning_without_hitl_auto_enters_writing",
+    "config": {
+      "hitl": {
+        "confirm_scope_after_research": false,
+        "confirm_ia_before_writing": false
+      },
+      "publish": {
+        "enabled": false
+      },
+      "max_revision_attempts": 3
+    },
+    "state": {
+      "phase": "planning",
+      "scope_confirmed": true,
+      "ia_confirmed": false,
+      "docs_planned": [
+        { "slug": "index", "title": "SDD", "kind": "fixed", "path": "index.md" }
+      ],
+      "docs_written": [],
+      "docs_to_revise": [],
+      "revision_reasons": {},
+      "revision_attempts": {},
+      "docs_blocked": [],
+      "docs_done": [],
+      "current_doc": null
+    },
+    "context": {
+      "sources_exists": true
+    },
+    "expected": {
+      "phase": "writing",
+      "action": "wiki-writer:index",
+      "scope_confirmed": true,
+      "ia_confirmed": true,
+      "current_doc": "index"
+    }
+  },
+  {
+    "name": "writing_prioritizes_revision_queue",
+    "config": {
+      "hitl": {
+        "confirm_scope_after_research": false,
+        "confirm_ia_before_writing": false
+      },
+      "publish": {
+        "enabled": false
+      },
+      "max_revision_attempts": 3
+    },
+    "state": {
+      "phase": "writing",
+      "scope_confirmed": true,
+      "ia_confirmed": true,
+      "docs_planned": [
+        { "slug": "index", "title": "Harness", "kind": "fixed", "path": "index.md" },
+        { "slug": "quick-start", "title": "Quick Start", "kind": "guide", "path": "docs/guides/quick-start.md" }
+      ],
+      "docs_written": [],
+      "docs_to_revise": [
+        { "slug": "quick-start", "title": "Quick Start", "kind": "guide", "path": "docs/guides/quick-start.md" }
+      ],
+      "revision_reasons": {
+        "quick-start": "example needed"
+      },
+      "revision_attempts": {
+        "quick-start": 1
+      },
+      "docs_blocked": [],
+      "docs_done": [
+        { "slug": "index", "title": "Harness", "kind": "fixed", "path": "index.md" }
+      ],
+      "current_doc": null
+    },
+    "context": {
+      "sources_exists": true
+    },
+    "expected": {
+      "phase": "writing",
+      "action": "wiki-writer:quick-start",
+      "scope_confirmed": true,
+      "ia_confirmed": true,
+      "current_doc": "quick-start"
+    }
+  },
+  {
+    "name": "writing_blocks_doc_after_retry_limit",
+    "config": {
+      "hitl": {
+        "confirm_scope_after_research": false,
+        "confirm_ia_before_writing": false
+      },
+      "publish": {
+        "enabled": false
+      },
+      "max_revision_attempts": 3
+    },
+    "state": {
+      "phase": "writing",
+      "scope_confirmed": true,
+      "ia_confirmed": true,
+      "docs_planned": [
+        { "slug": "glossary", "title": "Glossary", "kind": "fixed", "path": "glossary.md" }
+      ],
+      "docs_written": [],
+      "docs_to_revise": [
+        { "slug": "glossary", "title": "Glossary", "kind": "fixed", "path": "glossary.md" }
+      ],
+      "revision_reasons": {
+        "glossary": "broken anchors"
+      },
+      "revision_attempts": {
+        "glossary": 3
+      },
+      "docs_blocked": [],
+      "docs_done": [],
+      "current_doc": null
+    },
+    "context": {
+      "sources_exists": true
+    },
+    "expected": {
+      "phase": "reviewing",
+      "action": "wiki-reviewer",
+      "scope_confirmed": true,
+      "ia_confirmed": true,
+      "current_doc": null,
+      "blocked_docs": ["glossary"]
+    }
+  },
+  {
+    "name": "reviewing_with_revisions_returns_to_writing",
+    "config": {
+      "hitl": {
+        "confirm_scope_after_research": false,
+        "confirm_ia_before_writing": false
+      },
+      "publish": {
+        "enabled": false
+      },
+      "max_revision_attempts": 3
+    },
+    "state": {
+      "phase": "reviewing",
+      "scope_confirmed": true,
+      "ia_confirmed": true,
+      "docs_planned": [
+        { "slug": "index", "title": "SDD", "kind": "fixed", "path": "index.md" }
+      ],
+      "docs_written": [
+        { "slug": "index", "title": "SDD", "kind": "fixed", "path": "index.md" }
+      ],
+      "docs_to_revise": [
+        { "slug": "index", "title": "SDD", "kind": "fixed", "path": "index.md" }
+      ],
+      "revision_reasons": {
+        "index": "missing next links"
+      },
+      "revision_attempts": {
+        "index": 1
+      },
+      "docs_blocked": [],
+      "docs_done": [],
+      "current_doc": null
+    },
+    "context": {
+      "sources_exists": true
+    },
+    "expected": {
+      "phase": "writing",
+      "action": "wiki-writer:index",
+      "scope_confirmed": true,
+      "ia_confirmed": true,
+      "current_doc": "index"
+    }
+  },
+  {
+    "name": "reviewing_with_publish_enabled_goes_to_preflight",
+    "config": {
+      "hitl": {
+        "confirm_scope_after_research": false,
+        "confirm_ia_before_writing": false
+      },
+      "publish": {
+        "enabled": true
+      },
+      "max_revision_attempts": 3
+    },
+    "state": {
+      "phase": "reviewing",
+      "scope_confirmed": true,
+      "ia_confirmed": true,
+      "docs_planned": [
+        { "slug": "index", "title": "Harness", "kind": "fixed", "path": "index.md" }
+      ],
+      "docs_written": [
+        { "slug": "index", "title": "Harness", "kind": "fixed", "path": "index.md" }
+      ],
+      "docs_to_revise": [],
+      "revision_reasons": {},
+      "revision_attempts": {},
+      "docs_blocked": [],
+      "docs_done": [
+        { "slug": "index", "title": "Harness", "kind": "fixed", "path": "index.md" }
+      ],
+      "current_doc": null
+    },
+    "context": {
+      "sources_exists": true
+    },
+    "expected": {
+      "phase": "publishing",
+      "action": "wiki-publish-preflight",
+      "scope_confirmed": true,
+      "ia_confirmed": true,
+      "current_doc": null
+    }
+  },
+  {
+    "name": "reviewing_without_publish_finishes",
+    "config": {
+      "hitl": {
+        "confirm_scope_after_research": false,
+        "confirm_ia_before_writing": false
+      },
+      "publish": {
+        "enabled": false
+      },
+      "max_revision_attempts": 3
+    },
+    "state": {
+      "phase": "reviewing",
+      "scope_confirmed": true,
+      "ia_confirmed": true,
+      "docs_planned": [
+        { "slug": "index", "title": "Harness", "kind": "fixed", "path": "index.md" }
+      ],
+      "docs_written": [
+        { "slug": "index", "title": "Harness", "kind": "fixed", "path": "index.md" }
+      ],
+      "docs_to_revise": [],
+      "revision_reasons": {},
+      "revision_attempts": {},
+      "docs_blocked": [],
+      "docs_done": [
+        { "slug": "index", "title": "Harness", "kind": "fixed", "path": "index.md" }
+      ],
+      "current_doc": null
+    },
+    "context": {
+      "sources_exists": true
+    },
+    "expected": {
+      "phase": "done",
+      "action": "complete",
+      "scope_confirmed": true,
+      "ia_confirmed": true,
+      "current_doc": null
+    }
+  }
+]

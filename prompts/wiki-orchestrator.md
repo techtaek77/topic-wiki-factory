@@ -43,8 +43,8 @@
 | init | `sources.md`가 없으면 phase를 `"researching"`으로 바꾸고 `wiki-researcher` 실행 지시 |
 | init | `sources.md`가 있으면 phase를 `"scoping"`으로 |
 | researching | `sources.md`가 생겼는지 확인 → 있으면 phase를 `"scoping"`으로 |
-| scoping | `sources.md`의 "주제 해석 초안"을 보여주고 사람 확인 요청. 승인되면 `scope_confirmed=true`, phase를 `"planning"`으로 |
-| planning | IA 설계 후 `docs_planned` 저장. `hitl.confirm_ia_before_writing=true`면 사람 확인 요청 후 `ia_confirmed=true`, phase를 `"writing"`으로 |
+| scoping | `hitl.confirm_scope_after_research=true`면 "주제 해석 초안"을 보여주고 사람 확인 요청. false면 자동으로 `scope_confirmed=true`, phase를 `"planning"`으로 |
+| planning | IA 설계 후 `docs_planned` 저장. `hitl.confirm_ia_before_writing=true`면 사람 확인 요청, false면 자동으로 `ia_confirmed=true`, phase를 `"writing"`으로 |
 | writing | `docs_to_revise` 먼저 처리 → 없으면 아직 안 쓴 문서 1개 선택 → `current_doc` 설정 후 `wiki-writer {slug}` 실행 지시 |
 | reviewing | `wiki-reviewer` 결과 반영 후 `docs_to_revise`가 있으면 `"writing"`, 없고 `publish.enabled=true`면 `"publishing"`, 아니면 `"done"` |
 | publishing | 먼저 `wiki-publish-preflight` 실행 지시 → READY면 `wiki-publisher`, REVISE면 수정 후 재시도 |
@@ -53,9 +53,10 @@
 **3. 스코프 확인 규칙**
 
 - `phase=scoping` 이고 `scope_confirmed=false` 이면, `sources.md`의 `## 주제 해석 초안`을 5줄 안으로 요약해 사용자에게 보여주세요.
-- 이때 반드시 아래 두 가지를 함께 묻습니다.
+- `hitl.confirm_scope_after_research=true`일 때만 아래 두 가지를 함께 묻습니다.
   - "이 해석이 맞는지"
   - "빼야 할 범위가 더 있는지"
+- `hitl.confirm_scope_after_research=false`이면 사용자 확인 없이 `scope_confirmed=true`, `phase=planning`
 - 사용자가 수정하면 `wiki-config.yaml`의 `topic_definition`, `exclude_topics`, `seed_material_paths`를 반영하고 `scope_confirmed=true` 저장
 - 사용자가 승인하면 `scope_confirmed=true`, `phase=planning`
 
@@ -89,6 +90,7 @@
 IA 설계 후:
 
 - `hitl.confirm_ia_before_writing=true` 이고 `ia_confirmed=false` 이면 `docs_planned`를 사용자에게 보여주고 확인 요청
+- `hitl.confirm_ia_before_writing=false` 이면 사용자 확인 없이 `ia_confirmed=true`, `phase="writing"`으로
 - 사용자가 승인하면 `ia_confirmed=true`, `phase=writing`
 - 사용자가 수정 요청하면 `docs_planned`를 갱신한 뒤 다시 확인
 
@@ -98,6 +100,7 @@ IA 설계 후:
 - 그다음 `docs_planned` 중 `docs_done.slug`, `docs_blocked`에 없는 문서 선택
 - 선택한 문서는 `current_doc`에 동일한 객체로 저장
 - 모든 문서가 `docs_done.slug` 또는 `docs_blocked`에 있으면 phase를 `"reviewing"`으로 변경
+- 기본 모델은 "문서 1개씩 선택하는 순차 자동 진행"이다. 병렬 writer 실행은 별도 확장이 필요하다.
 
 **6. revision 처리**
 
