@@ -1,0 +1,41 @@
+{
+  "topic_name": "Codex 101",
+  "output_path": "./examples/codex-101/output",
+  "phase": "done",
+  "scope_confirmed": true,
+  "ia_confirmed": true,
+  "docs_planned": [
+    { "slug": "index", "title": "Codex 101", "kind": "fixed", "path": "index.md" },
+    { "slug": "prerequisite-map", "title": "시작 전에 알아야 할 것", "kind": "fixed", "path": "prerequisite-map.md" },
+    { "slug": "glossary", "title": "용어집", "kind": "fixed", "path": "glossary.md" },
+    { "slug": "faq", "title": "자주 하는 질문", "kind": "fixed", "path": "faq.md" },
+    { "slug": "agents-and-context", "title": "Agents and Context", "kind": "concept", "path": "docs/concepts/agents-and-context.md" },
+    { "slug": "review-vs-implementation", "title": "Review vs Implementation", "kind": "concept", "path": "docs/concepts/review-vs-implementation.md" },
+    { "slug": "quick-start", "title": "첫 작업 바로 해보기", "kind": "guide", "path": "docs/guides/quick-start.md" }
+  ],
+  "docs_written": [
+    { "slug": "index", "title": "Codex 101", "kind": "fixed", "path": "index.md" },
+    { "slug": "prerequisite-map", "title": "시작 전에 알아야 할 것", "kind": "fixed", "path": "prerequisite-map.md" },
+    { "slug": "glossary", "title": "용어집", "kind": "fixed", "path": "glossary.md" },
+    { "slug": "faq", "title": "자주 하는 질문", "kind": "fixed", "path": "faq.md" },
+    { "slug": "agents-and-context", "title": "Agents and Context", "kind": "concept", "path": "docs/concepts/agents-and-context.md" },
+    { "slug": "review-vs-implementation", "title": "Review vs Implementation", "kind": "concept", "path": "docs/concepts/review-vs-implementation.md" },
+    { "slug": "quick-start", "title": "첫 작업 바로 해보기", "kind": "guide", "path": "docs/guides/quick-start.md" }
+  ],
+  "docs_to_revise": [],
+  "revision_reasons": {},
+  "revision_attempts": {},
+  "docs_blocked": [],
+  "docs_done": [
+    { "slug": "index", "title": "Codex 101", "kind": "fixed", "path": "index.md" },
+    { "slug": "prerequisite-map", "title": "시작 전에 알아야 할 것", "kind": "fixed", "path": "prerequisite-map.md" },
+    { "slug": "glossary", "title": "용어집", "kind": "fixed", "path": "glossary.md" },
+    { "slug": "faq", "title": "자주 하는 질문", "kind": "fixed", "path": "faq.md" },
+    { "slug": "agents-and-context", "title": "Agents and Context", "kind": "concept", "path": "docs/concepts/agents-and-context.md" },
+    { "slug": "review-vs-implementation", "title": "Review vs Implementation", "kind": "concept", "path": "docs/concepts/review-vs-implementation.md" },
+    { "slug": "quick-start", "title": "첫 작업 바로 해보기", "kind": "guide", "path": "docs/guides/quick-start.md" }
+  ],
+  "current_doc": null,
+  "last_updated": "2026-03-10T22:15:00+09:00",
+  "started_at": "2026-03-10T21:50:00+09:00"
+}

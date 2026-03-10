@@ -6,6 +6,7 @@
 ## Included examples
 
 - `chess-intro/` - knowledge 유형 입문형 위키 예시
+- `codex-101/` - tool 유형 입문형 위키 예시
 
 각 예시는 아래를 함께 보여준다.
 

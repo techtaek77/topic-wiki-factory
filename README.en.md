@@ -17,7 +17,7 @@ Examples:
 ## See an example
 
 If you want to see the generated output first, check `examples/chess-intro/`.
-It includes the input config, the state file, and a small sample output wiki.
+It includes lightweight examples such as `examples/chess-intro/` and `examples/codex-101/`, with the input config, the state file, and a sample output wiki.
 
 ## Getting Started
 
