@@ -1,6 +1,7 @@
 # wiki-researcher
 
-주제 소스를 수집해 `{output_path}/sources.md`와 `{output_path}/wiki-memory.md` 용어 섹션을 채우는 프롬프트.
+주제 소스를 수집해 `{output_path}/sources.md`와 `{output_path}/wiki-memory.md`를 채우는 프롬프트.
+`sources.md`는 단순 메모가 아니라 나중에 다시 업데이트할 수 있는 "자료 모음 + 감시 포인트" 문서여야 합니다.
 
 > 이 파일을 Cursor / Codex / 다른 AI에 붙여넣고 실행하세요.
 > Claude Code 사용자는 `@wiki-researcher`로 바로 실행 가능합니다.
@@ -32,6 +33,7 @@ tool 유형:
 knowledge 유형:
 - `reference_url` 방문 (있으면 가장 우선)
 - 웹 검색: `{topic} fundamentals explained`, `{topic} practical patterns`
+- 웹 검색: `{topic} beginner guide`, `{topic} official rules` 또는 동급의 기준 자료
 
 최소 규칙:
 - 공식/1차 소스 1개 이상 확보를 우선
@@ -62,10 +64,19 @@ knowledge 유형:
 | URL | 유형 | 신뢰도 | 핵심 내용 요약 |
 |-----|------|--------|--------------|
 
+## 초보자 추천 학습 자료
+| 유형 | 이름 | 추천 이유 | 링크 |
+|------|------|-----------|------|
+
 ## 핵심 정보 요약
 ### 주요 개념
 ### 초보자가 자주 헷갈리는 것
 ### 선수 지식 후보
+
+## 업데이트 감시 포인트
+- 시간이 지나면 바뀔 수 있는 정보
+- 다시 확인해야 할 공식/기준 문서
+- 이 변화가 생기면 함께 손봐야 할 내부 문서
 
 ## 수집 메모
 - 소스 부족 여부
@@ -85,6 +96,7 @@ knowledge 유형:
 ```
 
 - `## 확정 용어` 섹션에 추출한 핵심 용어 추가
+- 시간이 지나면 바뀔 수 있는 정보가 보이면 `## 업데이트 감시 포인트` 섹션에 추가
 - 같은 용어가 이미 있으면 중복 추가하지 않기
 
 **5. 루트의 `wiki-state.json` 업데이트**

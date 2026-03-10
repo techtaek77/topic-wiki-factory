@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="620" viewBox="0 0 720 620" role="img" aria-labelledby="title desc">
+  <title id="title">Starting chessboard orientation</title>
+  <desc id="desc">A chessboard in the standard starting position with the lower-right square highlighted as light.</desc>
+  <rect width="720" height="620" fill="#f5efe2"/>
+  <text x="40" y="44" font-family="Arial, sans-serif" font-size="26" font-weight="700" fill="#2f261c">Starting board: lower-right square is light</text>
+  <g transform="translate(70 80)">
+    <rect x="0" y="0" width="480" height="480" fill="#d9b17d" stroke="#3d2b1f" stroke-width="4"/>
+    <rect x="0" y="0" width="60" height="60" fill="#f3e7c9"/>
+    <rect x="120" y="0" width="60" height="60" fill="#f3e7c9"/>
+    <rect x="240" y="0" width="60" height="60" fill="#f3e7c9"/>
+    <rect x="360" y="0" width="60" height="60" fill="#f3e7c9"/>
+    <rect x="60" y="60" width="60" height="60" fill="#f3e7c9"/>
+    <rect x="180" y="60" width="60" height="60" fill="#f3e7c9"/>
+    <rect x="300" y="60" width="60" height="60" fill="#f3e7c9"/>
+    <rect x="420" y="60" width="60" height="60" fill="#f3e7c9"/>
+    <rect x="0" y="120" width="60" height="60" fill="#f3e7c9"/>
+    <rect x="120" y="120" width="60" height="60" fill="#f3e7c9"/>
+    <rect x="240" y="120" width="60" height="60" fill="#f3e7c9"/>
+    <rect x="360" y="120" width="60" height="60" fill="#f3e7c9"/>
+    <rect x="60" y="180" width="60" height="60" fill="#f3e7c9"/>
+    <rect x="180" y="180" width="60" height="60" fill="#f3e7c9"/>
+    <rect x="300" y="180" width="60" height="60" fill="#f3e7c9"/>
+    <rect x="420" y="180" width="60" height="60" fill="#f3e7c9"/>
+    <rect x="0" y="240" width="60" height="60" fill="#f3e7c9"/>
+    <rect x="120" y="240" width="60" height="60" fill="#f3e7c9"/>
+    <rect x="240" y="240" width="60" height="60" fill="#f3e7c9"/>
+    <rect x="360" y="240" width="60" height="60" fill="#f3e7c9"/>
+    <rect x="60" y="300" width="60" height="60" fill="#f3e7c9"/>
+    <rect x="180" y="300" width="60" height="60" fill="#f3e7c9"/>
+    <rect x="300" y="300" width="60" height="60" fill="#f3e7c9"/>
+    <rect x="420" y="300" width="60" height="60" fill="#f3e7c9"/>
+    <rect x="0" y="360" width="60" height="60" fill="#f3e7c9"/>
+    <rect x="120" y="360" width="60" height="60" fill="#f3e7c9"/>
+    <rect x="240" y="360" width="60" height="60" fill="#f3e7c9"/>
+    <rect x="360" y="360" width="60" height="60" fill="#f3e7c9"/>
+    <rect x="60" y="420" width="60" height="60" fill="#f3e7c9"/>
+    <rect x="180" y="420" width="60" height="60" fill="#f3e7c9"/>
+    <rect x="300" y="420" width="60" height="60" fill="#f3e7c9"/>
+    <rect x="420" y="420" width="60" height="60" fill="#ffef8a" stroke="#b88400" stroke-width="3"/>
+
+    <g font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#5a4330">
+      <text x="24" y="-12">a</text><text x="84" y="-12">b</text><text x="144" y="-12">c</text><text x="204" y="-12">d</text>
+      <text x="264" y="-12">e</text><text x="324" y="-12">f</text><text x="384" y="-12">g</text><text x="444" y="-12">h</text>
+      <text x="-22" y="36">8</text><text x="-22" y="96">7</text><text x="-22" y="156">6</text><text x="-22" y="216">5</text>
+      <text x="-22" y="276">4</text><text x="-22" y="336">3</text><text x="-22" y="396">2</text><text x="-22" y="456">1</text>
+    </g>
+
+    <g font-family="Arial, sans-serif" font-size="30" font-weight="700" text-anchor="middle">
+      <g fill="#3f2f21">
+        <text x="30" y="40">r</text><text x="90" y="40">n</text><text x="150" y="40">b</text><text x="210" y="40">q</text>
+        <text x="270" y="40">k</text><text x="330" y="40">b</text><text x="390" y="40">n</text><text x="450" y="40">r</text>
+        <text x="30" y="100">p</text><text x="90" y="100">p</text><text x="150" y="100">p</text><text x="210" y="100">p</text>
+        <text x="270" y="100">p</text><text x="330" y="100">p</text><text x="390" y="100">p</text><text x="450" y="100">p</text>
+      </g>
+      <g fill="#ffffff" stroke="#3f2f21" stroke-width="1.5">
+        <text x="30" y="460">R</text><text x="90" y="460">N</text><text x="150" y="460">B</text><text x="210" y="460">Q</text>
+        <text x="270" y="460">K</text><text x="330" y="460">B</text><text x="390" y="460">N</text><text x="450" y="460">R</text>
+        <text x="30" y="400">P</text><text x="90" y="400">P</text><text x="150" y="400">P</text><text x="210" y="400">P</text>
+        <text x="270" y="400">P</text><text x="330" y="400">P</text><text x="390" y="400">P</text><text x="450" y="400">P</text>
+      </g>
+    </g>
+  </g>
+  <g transform="translate(575 472)">
+    <rect x="0" y="0" width="110" height="58" rx="8" fill="#fff7cf" stroke="#b88400" stroke-width="2"/>
+    <text x="55" y="24" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#6d5200">h1 is light</text>
+    <text x="55" y="44" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#6d5200">use this to orient the board</text>
+  </g>
+</svg>

@@ -17,7 +17,7 @@
 ## 예시 보기
 
 실제 결과물이 어떤 식으로 생기는지 먼저 보고 싶다면 [examples/README.md](examples/README.md)를 보면 된다.
-지금은 `examples/chess-intro/`, `examples/codex-101/` 두 개를 넣어 두었고, 입력 설정부터 생성 결과까지 같이 볼 수 있다.
+지금은 `examples/chess-intro/`(knowledge), `examples/codex-101/`(tool) 두 개를 넣어 두었고, 입력 설정부터 생성 결과까지 같이 볼 수 있다.
 
 ## 시작하기
 
@@ -57,6 +57,7 @@ orchestrator는 `wiki-state.json`을 읽고 다음 작업을 정한다.
 중간에 멈췄다가 다시 실행해도 이미 끝난 문서는 다시 쓰지 않는다.
 `hitl.confirm_scope_after_research`, `hitl.confirm_ia_before_writing` 둘 다 `false`면 사람 확인 단계 없이 다음 phase로 자동 진행한다.
 다만 기본 실행 모델은 병렬 writer가 아니라, 문서 1개씩 고르는 순차 자동 진행이다.
+이건 일부러 그런 거다. 문서형 작업은 상태 꼬임보다 안정성이 중요해서, 기본은 순차 진행으로 두고 researcher / updater / auditor를 유지보수 루프로 붙이는 설계다.
 
 `hitl` 확인을 켜 둔 수동 흐름의 기본 순서는 아래와 같다.
 
@@ -66,6 +67,29 @@ orchestrator는 `wiki-state.json`을 읽고 다음 작업을 정한다.
 4. `wiki-orchestrator` -> IA 확인
 5. `wiki-writer {slug}` 반복
 6. `wiki-reviewer`
+
+## 위키를 계속 업데이트하려면
+
+이 프로젝트는 "한 번 만들고 끝"보다 "살아 있는 위키"에 가깝게 쓰는 편이 좋다.
+사람도 한 번 배우고 멈추면 굳듯이, 위키도 업데이트 루프가 없으면 금방 낡는다.
+
+추천 유지보수 루프:
+
+1. 외부 기준이나 추천 자료가 바뀐 것 같으면 `wiki-researcher`
+2. 특정 문서 내용이 바뀌면 `wiki-updater {slug} "{변경 내용}"`
+3. 빈 구간이 생겼는지 보면 `wiki-gap-finder`
+4. 링크, 허브 문서, 자료 모음 상태를 보면 `wiki-auditor`
+5. 수정 대상이 잡히면 `wiki-orchestrator`
+
+특히 knowledge 위키는 초보자용 입문 허브 가이드(`basics`)와 `sources.md`의 자료 모음 / 업데이트 감시 포인트를 같이 유지하는 흐름을 기본으로 잡는다.
+
+### 빠른 검증
+
+PR 전에 아래 acceptance harness를 돌리면 orchestrator 기본 흐름 12개 시나리오를 한 번에 확인할 수 있다.
+
+```bash
+python3 scripts/orchestrator_harness.py
+```
 
 ### 3. 완료 후 발행
 
@@ -98,6 +122,7 @@ orchestrator는 `wiki-state.json`을 읽고 다음 작업을 정한다.
 ├── assets/               <- README용 정적 자산
 ├── examples/             <- 보여주기용 샘플 위키
 ├── prompts/              <- 타 런타임용 프롬프트
+├── specs/                <- 단계별 설계 제안서
 ├── templates/            <- 문서 템플릿과 스키마 예시
 ├── CONTRIBUTING.md
 ├── LICENSE
@@ -110,7 +135,7 @@ orchestrator는 `wiki-state.json`을 읽고 다음 작업을 정한다.
 ```
 
 루트의 `wiki-config.yaml`과 `wiki-state.json`은 의도적으로 빈 시작 상태로 들어 있다.
-샘플 위키 산출물은 공개 저장소에 포함하지 않으며, 실제 문서와 `docs/`, `sources.md`, `wiki-memory.md`는 첫 실행 뒤 `output_path` 아래 생성된다.
+검증용 산출물은 공개 저장소에 넣지 않고, 보여주기용 예제만 `examples/` 아래에 포함한다. 실제 문서와 `docs/`, `sources.md`, `wiki-memory.md`는 첫 실행 뒤 `output_path` 아래 생성된다.
 
 ```yaml
 output_path: "./output/harness"        # 독립 폴더
@@ -159,6 +184,6 @@ output_path: "../my-chess-wiki/docs"   # 다른 repo
 
 - `templates/` -> 문서 구조 예시와 스키마 상세
 - `spec.md` -> 설계 문서
-- `parallel-writer-spec.md` -> 병렬 writer 확장 설계
+- `specs/parallel-writer-spec.md` -> 병렬 writer 확장 설계 (Phase 2, 아직 미구현)
 - `tests/README.md` -> orchestrator acceptance harness 설명
 - `plan.md` -> 개발 계획

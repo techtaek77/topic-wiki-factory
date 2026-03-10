@@ -101,9 +101,14 @@ phase = "done"
 - 공통 고정 문서: `index`, `prerequisite-map`, `glossary`, `faq`
 - tool 유형만 `changelog` 추가
 - `quick-start`는 guides의 첫 문서로 반드시 포함
+- knowledge 유형이고 `target_audience`에 `처음`, `초보`, `입문`, `beginner` 의미가 있으면 입문 허브 guide를 반드시 포함
+  - 권장 slug: `basics`
+  - 권장 path: `docs/guides/basics.md`
+  - 역할: "이게 무엇인가 / 핵심 규칙·구성요소 / 처음엔 무엇을 할까"를 먼저 해결하는 입문 허브
 - `depth_level`에 따라 총 문서 수 목표를 맞춤
 - `sources.md`의 핵심 개념 요약에서 concepts 후보를 뽑음
 - `sources.md`의 `주제 해석 초안`과 `seed_material_paths`를 우선 반영
+- `sources.md`의 추천 학습 자료와 업데이트 감시 포인트도 함께 반영
 - 모든 slug는 kebab-case
 
 저장 형식:
@@ -111,6 +116,7 @@ phase = "done"
 ```json
 "docs_planned": [
   {"slug": "index", "title": "체스", "kind": "fixed", "path": "index.md"},
+  {"slug": "basics", "title": "체스는 어떻게 돌아가나", "kind": "guide", "path": "docs/guides/basics.md"},
   {"slug": "quick-start", "title": "처음 30분 가이드", "kind": "guide", "path": "docs/guides/quick-start.md"},
   {"slug": "rook", "title": "룩", "kind": "concept", "path": "docs/concepts/rook.md"}
 ]
@@ -154,4 +160,5 @@ docs_planned:
 - state 파일 손상 시: "wiki-state-init" 명령으로 초기화 안내
 - docs_blocked 항목은 작성 대상에서 제외하고 사용자 수동 처리로 넘김
 - 기본 진행 모델은 "문서 1개씩 선택하는 순차 자동 진행"이다. 병렬 writer 실행은 현재 기본 전제가 아니다.
+- 순차 진행은 품질과 상태 관리 단순화를 위한 의도된 선택이다. 대신 researcher / updater / auditor를 유지보수 루프로 활용한다.
 - 매 호출마다 wiki-state.json을 읽고 저장한다

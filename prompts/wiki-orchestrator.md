@@ -68,12 +68,17 @@
 - 공통 고정 문서: `index`, `prerequisite-map`, `glossary`, `faq`
 - tool 유형만 `changelog` 추가
 - `quick-start`는 guides 카테고리의 첫 문서로 반드시 포함
+- knowledge 유형이고 `target_audience`에 `처음`, `초보`, `입문`, `beginner` 뉘앙스가 있으면 입문 허브 guide를 반드시 포함
+  - 권장 slug: `basics`
+  - 권장 path: `docs/guides/basics.md`
+  - 역할: "이게 무엇인가, 핵심 규칙/구성요소는 무엇인가, 처음엔 뭘 하면 되나"를 먼저 설명하는 입문 허브
 - `depth_level`별 총 문서 수 목표:
   - `intro`: 8~10개
   - `practical`: 11~14개
   - `advanced`: 14~16개
 - `sources.md`의 "주요 개념"에서 concepts 후보 선정
 - `sources.md`의 "초보자가 자주 헷갈리는 것", "실전 패턴/작업"에서 guides 후보 선정
+- `sources.md`의 "초보자 추천 학습 자료", "업데이트 감시 포인트"도 함께 읽고 허브 문서와 유지보수 포인트를 설계
 - 모든 slug는 kebab-case
 
 저장 형식:
@@ -82,6 +87,7 @@
 "docs_planned": [
   {"slug": "index", "title": "체스", "kind": "fixed", "path": "index.md"},
   {"slug": "prerequisite-map", "title": "시작 전에 알아야 할 것", "kind": "fixed", "path": "prerequisite-map.md"},
+  {"slug": "basics", "title": "체스는 어떻게 돌아가나", "kind": "guide", "path": "docs/guides/basics.md"},
   {"slug": "quick-start", "title": "처음 30분 가이드", "kind": "guide", "path": "docs/guides/quick-start.md"},
   {"slug": "rook", "title": "룩", "kind": "concept", "path": "docs/concepts/rook.md"}
 ]
@@ -101,6 +107,7 @@ IA 설계 후:
 - 선택한 문서는 `current_doc`에 동일한 객체로 저장
 - 모든 문서가 `docs_done.slug` 또는 `docs_blocked`에 있으면 phase를 `"reviewing"`으로 변경
 - 기본 모델은 "문서 1개씩 선택하는 순차 자동 진행"이다. 병렬 writer 실행은 별도 확장이 필요하다.
+- 순차 진행은 의도된 기본값이다. 대신 researcher / updater / auditor를 조합해 "지속 업데이트되는 위키" 흐름을 유지한다.
 
 **6. revision 처리**
 

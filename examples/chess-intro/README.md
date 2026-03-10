@@ -8,6 +8,7 @@
 - `wiki-config.yaml` - 어떤 입력으로 시작했는지
 - `wiki-state.json` - 어떤 문서들이 planned/written/done 상태로 관리되는지
 - `output/` - 실제 생성 결과가 어떤 모양으로 나오는지
+- `output/assets/*.svg` - 말 배치나 이동처럼 글보다 그림이 빠른 부분을 어떻게 보여줄지
 
 ## Notes
 

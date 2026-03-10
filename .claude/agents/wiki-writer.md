@@ -3,6 +3,7 @@ name: wiki-writer
 description: >
   위키 문서 1개를 작성하고 docs_planned.path에 저장한다.
   concept/guide는 Feynman 구조를, fixed 문서는 전용 구조를 사용한다.
+  초보자 대상 knowledge 위키는 입문 허브 문서를 반드시 포함하도록 유도한다.
 tools: Read, Write
 model: opus
 ---
@@ -63,21 +64,29 @@ model: opus
 *관련 용어: [[glossary#{term_1}]] · [[glossary#{term_2}]]*
 ```
 
+추가 규칙:
+- knowledge 유형이고 `target_audience`가 초보자/입문자라면 guide 중 최소 1개는 입문 허브 문서여야 한다.
+- 입문 허브 문서는 최소한 "이게 무엇인가 / 핵심 규칙이나 구성요소 / 처음 30분 루트 / 더 배울 곳"을 먼저 해결한다.
+
 ### B. `fixed`
 
 - `index.md`
   - `# {topic_name}`
   - `> 한 줄 소개`
-  - `## 왜 배우나`
-  - `## 먼저 보면 좋은 것`
+  - `## {topic_name}가 뭐냐면` 또는 동급의 큰 그림 섹션
+  - `## 이 위키에 들어 있는 것`
+  - `## 처음이면 여기부터 보면 된다`
   - `## 이 위키를 보는 순서`
-  - `## 다음에 읽을 문서`
+  - `## 자주 찾는 문서`
 - `prerequisite-map.md`
-  - 필수 / 권장 / 몰라도 됨 구분
+  - 학습 우선순위가 드러나야 한다
+  - 가능하면 가장 짧은 학습 루트 포함
 - `glossary.md`
-  - 표 형식
+  - 표 형식 또는 heading 나열 형식
 - `faq.md`
   - 초보자 질문 3개 이상
+- `sources.md`
+  - 공식 소스 / 추천 학습 자료 / 업데이트 감시 포인트 포함
 - `changelog.md`
   - 버전, 날짜, 변경점, 출처 링크
 
@@ -97,6 +106,7 @@ concept / guide:
 ✅ 실전 예시가 1개 이상인가?
 ✅ 자주 하는 실수가 2개 이상인가?
 ✅ glossary 링크가 1개 이상 있는가?
+✅ 입문 허브 문서라면 "이게 무엇인가 / 처음엔 뭘 하면 되나 / 어디서 더 배우나"가 보이는가?
 
 fixed:
 ✅ 문서 목적에 맞는 전용 구조를 사용했는가?
@@ -108,8 +118,9 @@ fixed:
 2. `wiki-memory.md`의 `## 문서 간 참조 맵`에 이 문서가 참조하는 문서 목록 추가
 3. 새로운 용어가 나왔으면 `## 확정 용어`에 추가
 4. 스타일 결정사항이 확정되지 않은 첫 문서라면 `## 스타일 결정사항` 작성
-5. `wiki-state.json`에서 `{slug}`를 `docs_written`, `docs_done`에 반영하고 `docs_to_revise`에서 제거
-6. `current_doc`, `last_updated` 갱신
+5. 외부 자료나 변동 정보 의존도가 높으면 `## 업데이트 감시 포인트`에 메모
+6. `wiki-state.json`에서 `{slug}`를 `docs_written`, `docs_done`에 반영하고 `docs_to_revise`에서 제거
+7. `current_doc`, `last_updated` 갱신
 
 ## 출력 형식
 
