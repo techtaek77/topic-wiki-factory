@@ -9,18 +9,18 @@
 
 ## 먼저 보면 좋은 것
 
-- [[prerequisite-map]] - 기물, 좌표, 체크 개념 중 어디까지 먼저 알면 좋은지 본다.
-- [[quick-start]] - 첫 판을 시작하기 전에 꼭 알아야 할 최소 규칙만 빠르게 훑는다.
+- [prerequisite-map](prerequisite-map.md) - 기물, 좌표, 체크 개념 중 어디까지 먼저 알면 좋은지 본다.
+- [quick-start](docs/guides/quick-start.md) - 첫 판을 시작하기 전에 꼭 알아야 할 최소 규칙만 빠르게 훑는다.
 
 ## 이 위키를 보는 순서
 
-1. [[quick-start]]로 판을 시작하는 흐름을 먼저 잡는다.
-2. [[rook]] 같은 대표 기물 문서 하나를 읽으며 문서 구조에 익숙해진다.
-3. [[glossary]]로 용어를 정리한다.
-4. [[faq]]에서 초반에 자주 막히는 질문을 해결한다.
+1. [quick-start](docs/guides/quick-start.md)로 판을 시작하는 흐름을 먼저 잡는다.
+2. [rook](docs/concepts/rook.md) 같은 대표 기물 문서 하나를 읽으며 문서 구조에 익숙해진다.
+3. [glossary](glossary.md)로 용어를 정리한다.
+4. [faq](faq.md)에서 초반에 자주 막히는 질문을 해결한다.
 
 ## 다음에 읽을 문서
 
-- [[quick-start]] - 체스판을 놓고 바로 첫 수를 두는 흐름을 잡는다.
-- [[rook]] - 개별 기물 문서가 어떤 식으로 설명되는지 가장 직관적인 예시다.
-- [[faq]] - 초보자가 가장 많이 헷갈리는 규칙을 짧게 정리했다.
+- [quick-start](docs/guides/quick-start.md) - 체스판을 놓고 바로 첫 수를 두는 흐름을 잡는다.
+- [rook](docs/concepts/rook.md) - 개별 기물 문서가 어떤 식으로 설명되는지 가장 직관적인 예시다.
+- [faq](faq.md) - 초보자가 가장 많이 헷갈리는 규칙을 짧게 정리했다.

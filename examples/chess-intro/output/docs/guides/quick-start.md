@@ -19,8 +19,8 @@
 
 | 개념 | 한 줄 설명 | 링크 |
 |------|-----------|------|
-| Rook | 직선 이동이 분명해서 체스판 감각을 익히기 좋은 기물이다. | [[rook]] |
-| Check | 왕이 위협받을 때 반드시 대응해야 하는 상태다. | [[glossary#Check]] |
+| Rook | 직선 이동이 분명해서 체스판 감각을 익히기 좋은 기물이다. | [rook](../concepts/rook.md) |
+| Check | 왕이 위협받을 때 반드시 대응해야 하는 상태다. | [Check](../../glossary.md#check) |
 
 ---
 
@@ -54,9 +54,9 @@
 
 | 문서 | 이유 |
 |------|------|
-| [[prerequisite-map]] | 무엇을 먼저 익히면 덜 헤매는지 학습 순서를 정리한다. |
-| [[faq]] | 초반에 가장 많이 헷갈리는 질문을 짧게 해결한다. |
+| [prerequisite-map](../../prerequisite-map.md) | 무엇을 먼저 익히면 덜 헤매는지 학습 순서를 정리한다. |
+| [faq](../../faq.md) | 초반에 가장 많이 헷갈리는 질문을 짧게 해결한다. |
 
 ---
 
-*관련 용어: [[glossary#Check]] · [[glossary#Castle]]*
+*관련 용어: [Check](../../glossary.md#check) · [Castle](../../glossary.md#castle)*
