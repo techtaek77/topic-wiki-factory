@@ -27,9 +27,11 @@
 2. [agents-and-context](docs/concepts/agents-and-context.md)로 요청을 어떻게 써야 하는지 감을 잡는다.
 3. [review-vs-implementation](docs/concepts/review-vs-implementation.md)로 언제 구현/리뷰를 나눌지 본다.
 4. [faq](faq.md)에서 처음 쓰며 드는 질문을 정리한다.
+5. [questions](questions.md)에서 아직 막히는 질문을 적고 다음 보강 포인트를 본다.
 
 ## 다음에 읽을 문서
 
 - [quick-start](docs/guides/quick-start.md) - 지금 바로 따라 하기 좋다.
 - [faq](faq.md) - 폴더, 브랜치, 커밋 같은 기본 질문을 바로 해결한다.
+- [questions](questions.md) - 읽었는데도 막히는 질문을 모아 두는 곳이다.
 - [glossary](glossary.md) - 낯선 용어가 보이면 짧게 정리해 둔 곳이다.

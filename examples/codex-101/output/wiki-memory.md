@@ -11,8 +11,14 @@
 - 입문자 기준으로 설명하되, 실제 개발 흐름과 연결되는 표현을 쓴다.
 - 과도한 제품 홍보 톤은 피한다.
 
+## Repeated questions
+
+- `diff를 봐도 뭐가 위험한지 모르겠다` -> review 문서나 FAQ 보강 후보
+- `에이전트에게 어디까지 맡겨도 되나` -> 역할 위임 설명 보강 후보
+
 ## Related docs
 
 - `agents-and-context` -> 역할 분리와 문맥 전달
 - `review-vs-implementation` -> 요청 성격 분리
 - `quick-start` -> 첫 작업 실전 루프
+- `questions` -> 읽었는데도 막히는 질문 기록

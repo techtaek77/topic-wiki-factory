@@ -9,6 +9,8 @@
 - `wiki-config.yaml` - 어떤 입력으로 시작했는지
 - `wiki-state.json` - 어떤 문서들이 planned/written/done 상태로 관리되는지
 - `output/` - 실제 생성 결과가 어떤 모양과 톤으로 나오는지
+- `output/changelog.md` - tool 유형 위키에서 변경 이력을 어떻게 보여주는지
+- `output/questions.md` - 읽다가 막힌 질문을 어떻게 다시 위키 보강으로 연결하는지
 
 ## Notes
 
