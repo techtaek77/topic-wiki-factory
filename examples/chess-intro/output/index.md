@@ -49,6 +49,7 @@
 - "캐슬링? 앙파상? 무슨 주문 같네" 싶으면 [castle](docs/concepts/castle.md), [en-passant](docs/concepts/en-passant.md), [promotion](docs/concepts/promotion.md)을 바로 본다.
 - "용어가 너무 많아서 머리가 미끄러진다" 싶으면 [glossary](glossary.md)를 옆에 켜 둔다.
 - "이제 어디서 계속 연습하지?" 싶으면 [sources](sources.md)로 간다.
+- "읽었는데도 뭔 소린지 모르겠다" 싶으면 [questions](questions.md)에 질문을 적고 다시 물어본다.
 
 ## 자주 찾는 문서
 
@@ -57,6 +58,7 @@
 - [castle](docs/concepts/castle.md) - 킹과 룩을 같이 움직이는 특수 규칙을 그림으로 본다.
 - [en-passant](docs/concepts/en-passant.md) - 텍스트로만 보면 이상한 그 규칙을 한 장으로 이해한다.
 - [promotion](docs/concepts/promotion.md) - 폰이 끝줄에 갔을 때 왜 퀸이 되는지 본다.
+- [questions](questions.md) - 아직 헷갈리는 질문을 모아 두고 다음 보강 포인트를 본다.
 - [sources](sources.md) - 공식 규칙, 무료 연습 사이트, 추천 유튜브 정리
 
 ## 자주 헷갈리는 규칙 빠른 점프

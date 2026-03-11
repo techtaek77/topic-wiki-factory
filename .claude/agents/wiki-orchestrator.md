@@ -99,10 +99,10 @@ phase = "done"
 `phase = "planning"` 이고 `scope_confirmed = true` 이면 반드시 설계한다.
 
 - `templates/ia-structure.md` 기준 사용
-- 공통 고정 문서: `index`, `prerequisite-map`, `glossary`, `faq`
+- 공통 고정 문서: `index`, `prerequisite-map`, `glossary`, `faq`, `questions`
 - tool 유형만 `changelog` 추가
 - `quick-start`는 guides의 첫 문서로 반드시 포함
-- knowledge 유형이라면 `index`가 큰 그림, 5분 요약, 입문 순서, 상황별 바로가기, 자주 찾는 문서를 갖춘 허브가 되도록 설계한다
+- knowledge 유형이라면 `index`가 큰 그림, 5분 요약, 입문 순서, 상황별 바로가기, 자주 찾는 문서, 질문 보관함을 갖춘 허브가 되도록 설계한다
 - knowledge 유형이고 `target_audience`에 `처음`, `초보`, `입문`, `beginner` 의미가 있으면 입문 허브 guide를 반드시 포함
   - 권장 slug: `basics`
   - 권장 path: `docs/guides/basics.md`
@@ -114,6 +114,7 @@ phase = "done"
 - `특수 규칙`, `예외`, `상태 변화`, `공간/배치` 축이 있으면 시각 설명하기 좋은 문서를 우선 후보로 포함
 - `sources.md`의 추천 학습 자료와 업데이트 감시 포인트도 함께 반영
 - 초보자가 자주 찾는 규칙/예외는 `index`와 입문 guide에서 바로 점프할 수 있게 허브 가까이에 둔다
+- 개인 위키 성격이 강한 주제라면 `questions.md`를 질문 보관함 겸 문서 보강 큐로 활용한다
 - 모든 slug는 kebab-case
 
 저장 형식:
@@ -121,6 +122,7 @@ phase = "done"
 ```json
 "docs_planned": [
   {"slug": "index", "title": "체스", "kind": "fixed", "path": "index.md"},
+  {"slug": "questions", "title": "아직 헷갈리는 질문", "kind": "fixed", "path": "questions.md"},
   {"slug": "basics", "title": "체스는 어떻게 돌아가나", "kind": "guide", "path": "docs/guides/basics.md"},
   {"slug": "quick-start", "title": "처음 30분 가이드", "kind": "guide", "path": "docs/guides/quick-start.md"},
   {"slug": "rook", "title": "룩", "kind": "concept", "path": "docs/concepts/rook.md"}

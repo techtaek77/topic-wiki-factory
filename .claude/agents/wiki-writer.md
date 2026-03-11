@@ -90,6 +90,10 @@ model: opus
   - 표 형식 또는 heading 나열 형식
 - `faq.md`
   - 초보자 질문 3개 이상
+- `questions.md`
+  - 읽었는데 아직 헷갈리는 질문을 모은다
+  - 이미 답이 있는 질문과 문서 보강 후보 질문을 구분한다
+  - 에이전트에게 다시 물을 때 필요한 정보를 적어 둔다
 - `sources.md`
   - 공식 소스 / 추천 학습 자료 / 필수 학습 축 / 업데이트 감시 포인트 포함
 - `changelog.md`
@@ -125,8 +129,9 @@ fixed:
 3. 새로운 용어가 나왔으면 `## 확정 용어`에 추가
 4. 스타일 결정사항이 확정되지 않은 첫 문서라면 `## 스타일 결정사항` 작성
 5. 외부 자료나 변동 정보 의존도가 높으면 `## 업데이트 감시 포인트`에 메모
-6. `wiki-state.json`에서 `{slug}`를 `docs_written`, `docs_done`에 반영하고 `docs_to_revise`에서 제거
-7. `current_doc`, `last_updated` 갱신
+6. 반복 질문이 보이면 `## 반복 질문 메모`에 남기고 FAQ/문서 승격 후보를 적는다
+7. `wiki-state.json`에서 `{slug}`를 `docs_written`, `docs_done`에 반영하고 `docs_to_revise`에서 제거
+8. `current_doc`, `last_updated` 갱신
 
 ## 출력 형식
 

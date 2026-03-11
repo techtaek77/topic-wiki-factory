@@ -20,7 +20,7 @@ model: haiku
 
 `wiki-config.yaml`에서 output_path 읽기 → `{output_path}/` 아래 계획 문서 전체 MD 파일 목록 확인.
 
-## STEP 2: 8가지 탐지 항목
+## STEP 2: 9가지 탐지 항목
 
 ### 탐지 1: 끊긴 링크 (critical)
 `[[slug]]` 패턴 grep → 실제 파일 존재 여부 확인.
@@ -54,6 +54,9 @@ knowledge 유형 + 초보자 대상인데 `basics`, `intro`, `start-here` 성격
 
 ### 탐지 8: 허브형 index 약함 (warning)
 knowledge 유형 + 초보자 대상인데 `index.md`에 큰 그림, 입문 순서, 상황별 바로가기 중 2개 이상이 비면 경고.
+
+### 탐지 9: 질문 흡수 장치 부재 (warning)
+knowledge 유형 + 초보자 대상인데 `questions.md`가 없거나, `index.md`/`faq.md`에서 질문 보관함으로 가는 길이 없으면 경고.
 
 ## 출력 형식
 

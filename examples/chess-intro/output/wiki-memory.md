@@ -20,25 +20,34 @@
 - 턴 순서 예외나 상태 변화 문서는 시각 자료 품질이 이해도에 큰 영향을 준다.
 - `sources.md`의 필수 학습 축에 빈칸이 생기면 reviewing 전에 docs_planned를 다시 보강한다.
 
+## 반복 질문 메모
+
+| 질문 | 막힌 문서 | 다음 액션 |
+|------|----------|---------|
+| 앙파상은 왜 바로 다음 턴에만 되는가 | [en-passant](docs/concepts/en-passant.md) | FAQ와 questions에 반복 질문으로 유지 |
+| 캐슬링은 왜 체크를 지나가면 안 되는가 | [castle](docs/concepts/castle.md) | SVG 주석 또는 FAQ 보강 후보 |
+
 ## 스타일 결정사항
 
 - 첫 문장은 가능한 한 쉬운 비유 없이도 이해되게 쓴다.
 - 규칙 설명은 짧게, 학습 순서는 명확하게 쓴다.
 - 초보자용 문서는 "이게 뭔가 -> 어떻게 하는가 -> 어디서 더 배우나" 순서를 유지한다.
 - 허브 문서는 "큰 그림 -> 5분 요약 -> 어디부터 읽나 -> 상황별 바로가기" 흐름을 우선한다.
+- 질문 보관함은 "이미 답이 있는 질문"과 "문서 보강 후보 질문"을 나눠 적는다.
 - 특수 규칙 문서는 가능하면 텍스트보다 먼저 SVG로 전후 상태를 보여 준다.
 
 ## 문서 간 참조 맵
 
 | 문서 | 참조하는 문서들 |
 |------|------------------|
-| [index](index.md) | [chess-basics](docs/guides/chess-basics.md), [quick-start](docs/guides/quick-start.md), [castle](docs/concepts/castle.md), [en-passant](docs/concepts/en-passant.md), [promotion](docs/concepts/promotion.md), [rook](docs/concepts/rook.md), [faq](faq.md), [sources](sources.md) |
+| [index](index.md) | [chess-basics](docs/guides/chess-basics.md), [quick-start](docs/guides/quick-start.md), [castle](docs/concepts/castle.md), [en-passant](docs/concepts/en-passant.md), [promotion](docs/concepts/promotion.md), [rook](docs/concepts/rook.md), [faq](faq.md), [questions](questions.md), [sources](sources.md) |
 | [chess-basics](docs/guides/chess-basics.md) | [quick-start](docs/guides/quick-start.md), [castle](docs/concepts/castle.md), [en-passant](docs/concepts/en-passant.md), [promotion](docs/concepts/promotion.md), [glossary](glossary.md), [faq](faq.md), [sources](sources.md) |
 | [quick-start](docs/guides/quick-start.md) | [chess-basics](docs/guides/chess-basics.md), [castle](docs/concepts/castle.md), [prerequisite-map](prerequisite-map.md), [faq](faq.md) |
 | [rook](docs/concepts/rook.md) | [glossary](glossary.md), [quick-start](docs/guides/quick-start.md) |
 | [castle](docs/concepts/castle.md) | [quick-start](docs/guides/quick-start.md), [glossary](glossary.md), [faq](faq.md) |
 | [en-passant](docs/concepts/en-passant.md) | [glossary](glossary.md), [faq](faq.md), [promotion](docs/concepts/promotion.md) |
 | [promotion](docs/concepts/promotion.md) | [glossary](glossary.md), [faq](faq.md) |
+| [questions](questions.md) | [faq](faq.md), [en-passant](docs/concepts/en-passant.md), [castle](docs/concepts/castle.md), [chess-basics](docs/guides/chess-basics.md) |
 
 ## 수정 이유 로그
 

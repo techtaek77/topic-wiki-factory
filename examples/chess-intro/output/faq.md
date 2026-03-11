@@ -65,3 +65,9 @@
 - 규칙과 인터랙티브 입문: [sources](sources.md)의 Lichess Learn, Chess.com Learn
 - 영상으로 배우기: [sources](sources.md)의 GothamChess, Saint Louis Chess Club
 - 공식 규칙 확인: [sources](sources.md)의 FIDE Laws of Chess
+
+## 읽었는데도 이해가 안 되면 어떻게 하나요?
+
+그럴 수 있다. 위키가 아무리 잘 써도 사람 머릿속 질문은 늘 옆길로 샌다.
+이럴 땐 [questions](questions.md)에 "어느 문서의 어떤 문장이 막혔는지"를 적고 다시 물어보면 된다.
+반복해서 나오는 질문은 나중에 FAQ나 개별 문서로 승격하는 식으로 위키를 더 튼튼하게 만들 수 있다.
