@@ -7,6 +7,9 @@ An AI-agent template for generating a Feynman-structured learning wiki for any t
 > "What is this?" -> "Why does it matter?" -> "What should I learn first?" -> "How do I use it?"
 > in that order, so even a complete beginner can follow the wiki.
 
+For beginner-focused knowledge topics, it is meant to generate more of a hub-style starter wiki than a loose pile of notes.
+In practice, `index.md` should act like a home page with the big picture, a 5-minute summary, start-here links, common rule jump links, and external study resources.
+
 Examples:
 - `Harness` -> a Harness CI/CD wiki
 - `Chess` -> a beginner-friendly chess learning wiki
@@ -16,8 +19,15 @@ Examples:
 
 ## See an example
 
-If you want to see the generated output first, check `examples/chess-intro/`.
-It includes lightweight examples such as `examples/chess-intro/` and `examples/codex-101/`, with the input config, the state file, and a sample output wiki.
+If you want to see the generated output first, check `examples/README.md`.
+It includes two lightweight examples: `examples/chess-intro/` (knowledge) and `examples/codex-101/` (tool), with the input config, the state file, and a sample output wiki.
+
+In particular, `examples/chess-intro/` now shows:
+
+- a hub-style home page
+- a beginner-first starter guide
+- SVG explainers for castling, en passant, and promotion
+- a `sources.md` file that works as both a resource hub and an update watch list
 
 ## Getting Started
 
@@ -67,6 +77,32 @@ The default manual flow with `hitl` confirmations enabled looks like this:
 5. Repeat `wiki-writer {slug}`
 6. `wiki-reviewer`
 
+## Keeping the wiki alive
+
+This project works better as a living wiki than a one-shot generation script.
+People get rusty when they stop learning, and wikis do the same when they stop updating.
+
+Recommended maintenance loop:
+
+1. Run `wiki-researcher` when official references or recommended resources may have changed.
+2. Run `wiki-updater {slug} "{change summary}"` when a document needs a content refresh.
+3. Run `wiki-gap-finder` to detect missing learning paths or missing documents.
+4. Run `wiki-auditor` to inspect links, hub pages, and resource quality.
+5. Run `wiki-orchestrator` to schedule the next writing pass.
+
+For knowledge wikis, the default maintenance loop assumes a beginner hub guide such as `basics` plus a continuously maintained `sources.md` with learning resources and update watch points.
+For board layouts, rule exceptions, or state-change-heavy topics, visual assets such as SVG diagrams should be maintained alongside the text.
+
+### Quick verification
+
+Before opening a PR, you can run the acceptance harness:
+
+```bash
+python3 scripts/orchestrator_harness.py
+```
+
+It covers 12 orchestrator scenarios.
+
 ### 3. Publish after review
 
 After changing `publish.enabled: true` in `wiki-config.yaml`, run:
@@ -98,6 +134,7 @@ That helps prevent the classic "I meant execution harness, why did I get CI/CD d
 ├── assets/               <- static assets for README
 ├── examples/             <- lightweight sample wiki snapshots
 ├── prompts/              <- prompts for other runtimes
+├── specs/                <- phased design proposals
 ├── templates/            <- document templates and schema examples
 ├── CONTRIBUTING.md
 ├── LICENSE
@@ -111,7 +148,7 @@ That helps prevent the classic "I meant execution harness, why did I get CI/CD d
 ```
 
 The root `wiki-config.yaml` and `wiki-state.json` are intentionally blank starter files.
-Sample generated outputs are not committed as validation artifacts. Real generated files such as `docs/`, `sources.md`, and `wiki-memory.md` are created under your chosen `output_path` after the first run.
+Validation artifacts are not committed. Only curated example outputs under `examples/` are checked in; real generated files such as `docs/`, `sources.md`, and `wiki-memory.md` are created under your chosen `output_path` after the first run.
 
 ```yaml
 output_path: "./output/harness"        # standalone folder
@@ -134,6 +171,13 @@ output_path: "../my-chess-wiki/docs"   # inside another repository
 | `wiki-auditor` | structural audit | periodically |
 | `wiki-freshness` | freshness check | tool wikis only |
 | `wiki-gap-finder` | missing-topic detection | periodically |
+
+## What The Output Is Optimizing For
+
+- knowledge wikis: a hub-style starter wiki where readers can quickly find the next step
+- tool wikis: a practical docs hub with quick start and changelog support
+- special-rule / exception / spatial docs: visual-first explanations instead of text-only walls
+- `sources.md`: not just a citation scratchpad, but a resource hub plus required learning axes plus update watch points
 
 ## Runtime usage
 
@@ -160,6 +204,6 @@ If you change prompts, keep `.claude/agents/` and `prompts/` in sync.
 
 - `templates/` -> document structure and schema examples
 - `spec.md` -> design spec
-- `parallel-writer-spec.md` -> parallel writer extension proposal
+- `specs/parallel-writer-spec.md` -> parallel writer extension proposal (Phase 2, not implemented yet)
 - `tests/README.md` -> orchestrator acceptance harness
 - `plan.md` -> development plan

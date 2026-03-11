@@ -5,8 +5,8 @@
 
 ## Included examples
 
-- `chess-intro/` - knowledge 유형 입문형 위키 예시
-- `codex-101/` - tool 유형 입문형 위키 예시
+- `chess-intro/` - knowledge 유형 입문형 위키 예시 (허브형 홈 문서, 입문 가이드, 특수 규칙 SVG 포함)
+- `codex-101/` - tool 유형 입문형 위키 예시 (`changelog.md` 포함)
 
 각 예시는 아래를 함께 보여준다.
 
