@@ -5,13 +5,22 @@
 
 ## Included examples
 
-- `chess-intro/` - knowledge 유형 입문형 위키 예시 (허브형 홈 문서, 입문 가이드, 특수 규칙 SVG 포함)
-- `codex-101/` - tool 유형 입문형 위키 예시 (`changelog.md` 포함)
+- [chess-intro/](chess-intro/) - knowledge 유형 입문형 위키 예시 (허브형 홈 문서, 입문 가이드, 특수 규칙 SVG 포함)
+- [codex-101/](codex-101/) - tool 유형 입문형 위키 예시 ([changelog.md](codex-101/output/changelog.md) 포함)
 
 각 예시는 아래를 함께 보여준다.
 
 - 입력 설정 `wiki-config.yaml`
 - 진행 상태 `wiki-state.json`
 - 생성 결과 `output/`
+
+예를 들면:
+
+- [chess-intro/wiki-config.yaml](chess-intro/wiki-config.yaml)
+- [chess-intro/wiki-state.json](chess-intro/wiki-state.json)
+- [chess-intro/output/index.md](chess-intro/output/index.md)
+- [codex-101/wiki-config.yaml](codex-101/wiki-config.yaml)
+- [codex-101/wiki-state.json](codex-101/wiki-state.json)
+- [codex-101/output/index.md](codex-101/output/index.md)
 
 즉, "무슨 파일이 생기지?"와 "완성되면 어느 정도 길이와 톤이 나오지?"를 한 번에 볼 수 있다.
