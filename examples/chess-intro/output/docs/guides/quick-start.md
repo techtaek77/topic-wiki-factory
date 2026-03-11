@@ -86,6 +86,7 @@
 | 문서 | 이유 |
 |------|------|
 | [chess-basics](chess-basics.md) | 말 종류와 승리 조건을 먼저 이해하면 실제 배치가 더 쉬워진다. |
+| [castle](../concepts/castle.md) | 첫 판에서 가장 먼저 마주칠 특수 규칙 하나를 그림으로 익힌다. |
 | [prerequisite-map](../../prerequisite-map.md) | 무엇을 먼저 익히면 덜 헤매는지 학습 순서를 정리한다. |
 | [faq](../../faq.md) | 초반에 가장 많이 헷갈리는 질문을 짧게 해결한다. |
 

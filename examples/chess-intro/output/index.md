@@ -15,6 +15,7 @@
 - 체스가 어떻게 시작되고 무엇을 목표로 하는지
 - 기물이 어떻게 움직이고 어떻게 잡는지
 - 체크, 체크메이트, 스테일메이트 같은 필수 규칙
+- 캐슬링, 앙파상, 프로모션 같은 특수 규칙
 - 초보자가 첫 판을 둘 때 자주 헷갈리는 포인트
 - 더 배우기 좋은 사이트와 유튜브 채널
 
@@ -36,15 +37,33 @@
 
 1. [chess-basics](docs/guides/chess-basics.md)로 게임 목적과 기물 움직임을 익힌다.
 2. [quick-start](docs/guides/quick-start.md)로 실제 배치와 첫 턴 흐름을 따라간다.
-3. [glossary](glossary.md)에서 용어를 짧게 정리한다.
-4. [rook](docs/concepts/rook.md)으로 기물 문서가 어떻게 설명되는지 본다.
-5. [faq](faq.md)와 [sources](sources.md)로 막히는 부분과 다음 공부 거리를 챙긴다.
+3. [castle](docs/concepts/castle.md), [en-passant](docs/concepts/en-passant.md), [promotion](docs/concepts/promotion.md)으로 특수 규칙을 그림과 함께 익힌다.
+4. [glossary](glossary.md)에서 용어를 짧게 정리한다.
+5. [rook](docs/concepts/rook.md)으로 기물 문서가 어떻게 설명되는지 본다.
+6. [faq](faq.md)와 [sources](sources.md)로 막히는 부분과 다음 공부 거리를 챙긴다.
+
+## 이런 상황이면 여기부터
+
+- "체스가 대체 뭔지부터 모르겠다" 싶으면 [chess-basics](docs/guides/chess-basics.md)부터 본다.
+- "말은 직접 놓아 봐야 알겠다" 싶으면 [quick-start](docs/guides/quick-start.md)로 바로 간다.
+- "캐슬링? 앙파상? 무슨 주문 같네" 싶으면 [castle](docs/concepts/castle.md), [en-passant](docs/concepts/en-passant.md), [promotion](docs/concepts/promotion.md)을 바로 본다.
+- "용어가 너무 많아서 머리가 미끄러진다" 싶으면 [glossary](glossary.md)를 옆에 켜 둔다.
+- "이제 어디서 계속 연습하지?" 싶으면 [sources](sources.md)로 간다.
 
 ## 자주 찾는 문서
 
 - [glossary](glossary.md) - 말 이름, 체크메이트, 캐슬링 같은 기초 용어 모음
 - [faq](faq.md) - "체크 맞으면 끝인가?" 같은 초보 질문 모음
+- [castle](docs/concepts/castle.md) - 킹과 룩을 같이 움직이는 특수 규칙을 그림으로 본다.
+- [en-passant](docs/concepts/en-passant.md) - 텍스트로만 보면 이상한 그 규칙을 한 장으로 이해한다.
+- [promotion](docs/concepts/promotion.md) - 폰이 끝줄에 갔을 때 왜 퀸이 되는지 본다.
 - [sources](sources.md) - 공식 규칙, 무료 연습 사이트, 추천 유튜브 정리
+
+## 자주 헷갈리는 규칙 빠른 점프
+
+- [castle](docs/concepts/castle.md) - 킹과 룩을 같이 움직이는데 아무 때나 되진 않는다.
+- [en-passant](docs/concepts/en-passant.md) - "방금 두 칸 왔을 때만" 가능한 폰 예외 규칙이다.
+- [promotion](docs/concepts/promotion.md) - 폰이 끝줄에 도착했을 때 거의 항상 퀸으로 바꾸는 이유를 본다.
 
 ## 이 위키가 특히 좋은 사람
 

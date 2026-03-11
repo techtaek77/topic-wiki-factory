@@ -16,6 +16,7 @@
 - `docs_planned` 설계 및 저장
 - `current_doc` 선택
 - phase 전환
+- 초보자용 knowledge 위키라면 허브형 정보구조 유지
 
 ## 실행 순서
 
@@ -46,6 +47,7 @@
 | scoping | `hitl.confirm_scope_after_research=true`면 "주제 해석 초안"을 보여주고 사람 확인 요청. false면 자동으로 `scope_confirmed=true`, phase를 `"planning"`으로 |
 | planning | IA 설계 후 `docs_planned` 저장. `hitl.confirm_ia_before_writing=true`면 사람 확인 요청, false면 자동으로 `ia_confirmed=true`, phase를 `"writing"`으로 |
 | writing | `docs_to_revise` 먼저 처리 → 없으면 아직 안 쓴 문서 1개 선택 → `current_doc` 설정 후 `wiki-writer {slug}` 실행 지시 |
+| reviewing | 들어가기 전에 `sources.md`의 필수 학습 축 공백이 있으면 `docs_planned`를 먼저 보강하고 `"writing"`으로 되돌림 |
 | reviewing | `wiki-reviewer` 결과 반영 후 `docs_to_revise`가 있으면 `"writing"`, 없고 `publish.enabled=true`면 `"publishing"`, 아니면 `"done"` |
 | publishing | 먼저 `wiki-publish-preflight` 실행 지시 → READY면 `wiki-publisher`, REVISE면 수정 후 재시도 |
 | done | "✅ 위키 생성 완료" 출력 |
@@ -68,6 +70,8 @@
 - 공통 고정 문서: `index`, `prerequisite-map`, `glossary`, `faq`
 - tool 유형만 `changelog` 추가
 - `quick-start`는 guides 카테고리의 첫 문서로 반드시 포함
+- knowledge 유형이라면 `index`가 단순 홈이 아니라 허브 역할을 하게 문서 묶음을 설계
+  - 최소한 큰 그림, 5분 요약, 입문 순서, 상황별 바로가기, 자주 찾는 문서가 연결되게 한다
 - knowledge 유형이고 `target_audience`에 `처음`, `초보`, `입문`, `beginner` 뉘앙스가 있으면 입문 허브 guide를 반드시 포함
   - 권장 slug: `basics`
   - 권장 path: `docs/guides/basics.md`
@@ -78,7 +82,10 @@
   - `advanced`: 14~16개
 - `sources.md`의 "주요 개념"에서 concepts 후보 선정
 - `sources.md`의 "초보자가 자주 헷갈리는 것", "실전 패턴/작업"에서 guides 후보 선정
+- `sources.md`의 `필수 학습 축`을 읽고 축마다 최소 1개 대표 문서를 확보
+- `특수 규칙`, `예외`, `상태 변화`, `공간/배치` 축이 있으면 시각 설명하기 좋은 문서를 우선 후보로 포함
 - `sources.md`의 "초보자 추천 학습 자료", "업데이트 감시 포인트"도 함께 읽고 허브 문서와 유지보수 포인트를 설계
+- 초보자가 자주 찾는 규칙/예외가 있으면 `index`와 입문 guide에서 바로 점프할 수 있게 관련 문서를 허브 가까이에 배치
 - 모든 slug는 kebab-case
 
 저장 형식:

@@ -16,8 +16,9 @@
 1. [chess-basics](docs/guides/chess-basics.md)로 게임 목표와 기물 움직임을 잡는다.
 2. [glossary](glossary.md)로 용어를 빠르게 훑는다.
 3. [quick-start](docs/guides/quick-start.md)로 말 놓기와 첫 수 흐름을 따라간다.
-4. [rook](docs/concepts/rook.md)을 읽으며 실제 기물 하나를 깊게 이해한다.
-5. [sources](sources.md)에서 사이트나 유튜브 하나를 골라 반복 연습한다.
+4. [castle](docs/concepts/castle.md)로 가장 자주 나오는 특수 규칙 하나를 익힌다.
+5. [rook](docs/concepts/rook.md)을 읽으며 실제 기물 하나를 깊게 이해한다.
+6. [sources](sources.md)에서 사이트나 유튜브 하나를 골라 반복 연습한다.
 
 ## 하루 학습 루트 예시
 
@@ -25,6 +26,7 @@
 |------|-------|------|
 | 10분 | [chess-basics](docs/guides/chess-basics.md) 읽기 | 말이 왜 움직이는지 큰 그림 이해 |
 | 10분 | [quick-start](docs/guides/quick-start.md) 따라 배치 | 실제 판 감각 만들기 |
+| 10분 | [castle](docs/concepts/castle.md), [en-passant](docs/concepts/en-passant.md) 그림 보기 | 특수 규칙에서 덜 얼타기 |
 | 10분 | [faq](faq.md) 훑기 | 초반 헷갈림 제거 |
 | 20분 | [sources](sources.md)에서 사이트 한 곳으로 연습 | 읽은 내용을 실제 수로 연결 |
 

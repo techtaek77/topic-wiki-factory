@@ -78,6 +78,7 @@ phase = "writing"
   → 남은 미작성 없으면 phase = "reviewing"
 
 phase = "reviewing"
+  → 들어가기 전에 sources.md의 필수 학습 축 공백이 있으면 docs_planned를 먼저 보강하고 phase = "writing"
   → wiki-reviewer 호출
   → docs_to_revise가 있으면 phase = "writing"
   → 없고 publish.enabled = true 이면 phase = "publishing"
@@ -101,6 +102,7 @@ phase = "done"
 - 공통 고정 문서: `index`, `prerequisite-map`, `glossary`, `faq`
 - tool 유형만 `changelog` 추가
 - `quick-start`는 guides의 첫 문서로 반드시 포함
+- knowledge 유형이라면 `index`가 큰 그림, 5분 요약, 입문 순서, 상황별 바로가기, 자주 찾는 문서를 갖춘 허브가 되도록 설계한다
 - knowledge 유형이고 `target_audience`에 `처음`, `초보`, `입문`, `beginner` 의미가 있으면 입문 허브 guide를 반드시 포함
   - 권장 slug: `basics`
   - 권장 path: `docs/guides/basics.md`
@@ -108,7 +110,10 @@ phase = "done"
 - `depth_level`에 따라 총 문서 수 목표를 맞춤
 - `sources.md`의 핵심 개념 요약에서 concepts 후보를 뽑음
 - `sources.md`의 `주제 해석 초안`과 `seed_material_paths`를 우선 반영
+- `sources.md`의 `필수 학습 축`을 읽고 축마다 최소 1개 대표 문서를 확보
+- `특수 규칙`, `예외`, `상태 변화`, `공간/배치` 축이 있으면 시각 설명하기 좋은 문서를 우선 후보로 포함
 - `sources.md`의 추천 학습 자료와 업데이트 감시 포인트도 함께 반영
+- 초보자가 자주 찾는 규칙/예외는 `index`와 입문 guide에서 바로 점프할 수 있게 허브 가까이에 둔다
 - 모든 slug는 kebab-case
 
 저장 형식:

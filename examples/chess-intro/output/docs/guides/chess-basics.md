@@ -4,6 +4,14 @@
 
 ---
 
+## 한눈에 보면
+
+- 체스는 상대 킹을 도망 못 가게 만드는 게임이다.
+- 말마다 움직임이 다르고, 그 차이가 전략의 시작점이 된다.
+- 처음에는 오프닝 이름보다 킹, 룩, 폰 움직임과 체크 개념부터 잡는 편이 훨씬 쉽다.
+
+---
+
 ## 체스의 목표
 
 체스는 상대 킹을 체크메이트로 만드는 게임이다.
@@ -87,9 +95,9 @@
 
 | 규칙 | 한 줄 설명 | 왜 중요한가 |
 |------|-----------|-------------|
-| 캐슬링 | 킹과 룩을 동시에 움직여 킹을 숨기고 룩을 꺼내는 수 | 초반 킹 안전에 매우 중요하다 |
-| 앙파상 | 특정 상황에서 폰이 옆 폰을 특별하게 잡는 규칙 | 자주 나오진 않지만 처음 보면 "버그 아냐?" 싶다 |
-| 프로모션 | 폰이 끝줄에 도착하면 다른 기물로 승격 | 보통 퀸으로 바꾼다 |
+| [캐슬링](../concepts/castle.md) | 킹과 룩을 동시에 움직여 킹을 숨기고 룩을 꺼내는 수 | 초반 킹 안전에 매우 중요하다 |
+| [앙파상](../concepts/en-passant.md) | 특정 상황에서 폰이 옆 폰을 특별하게 잡는 규칙 | 자주 나오진 않지만 처음 보면 "버그 아냐?" 싶다 |
+| [프로모션](../concepts/promotion.md) | 폰이 끝줄에 도착하면 다른 기물로 승격 | 보통 퀸으로 바꾼다 |
 
 이 위키에서는 일단 캐슬링과 체크 개념을 먼저 익히는 쪽이 효율적이다.
 
@@ -99,10 +107,11 @@
 
 1. 킹, 룩, 폰 움직임부터 익힌다.
 2. [quick-start](quick-start.md)를 보며 실제 배치를 따라 한다.
-3. [glossary](../../glossary.md)로 낯선 용어를 바로 확인한다.
-4. [faq](../../faq.md)에서 자주 막히는 부분을 정리한다.
-5. [sources](../../sources.md)에서 사이트와 유튜브를 골라 더 연습한다.
+3. [castle](../concepts/castle.md), [en-passant](../concepts/en-passant.md), [promotion](../concepts/promotion.md)을 그림으로 훑는다.
+4. [glossary](../../glossary.md)로 낯선 용어를 바로 확인한다.
+5. [faq](../../faq.md)에서 자주 막히는 부분을 정리한다.
+6. [sources](../../sources.md)에서 사이트와 유튜브를 골라 더 연습한다.
 
 ---
 
-*관련 용어: [Check](../../glossary.md#check) · [Checkmate](../../glossary.md#checkmate) · [Castle](../../glossary.md#castle)*
+*관련 용어: [Check](../../glossary.md#check) · [Checkmate](../../glossary.md#checkmate) · [Castle](../../glossary.md#castle) · [En Passant](../../glossary.md#en-passant)*

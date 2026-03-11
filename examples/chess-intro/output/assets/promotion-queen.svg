@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="260" viewBox="0 0 760 260">
+  <rect width="760" height="260" fill="#fdf6e3"/>
+  <text x="40" y="34" font-family="Arial, sans-serif" font-size="24" fill="#2d3436">프로모션 직전</text>
+  <text x="410" y="34" font-family="Arial, sans-serif" font-size="24" fill="#2d3436">프로모션 직후</text>
+  <g transform="translate(80,60)">
+    <rect width="140" height="160" fill="#dfe6e9" stroke="#636e72" stroke-width="2"/>
+    <rect x="52.5" y="15" width="35" height="35" fill="#ffeaa7"/>
+    <rect x="52.5" y="50" width="35" height="35" fill="#b2bec3"/>
+    <rect x="52.5" y="85" width="35" height="35" fill="#ffeaa7"/>
+    <rect x="52.5" y="120" width="35" height="35" fill="#b2bec3"/>
+    <circle cx="70" cy="67.5" r="15" fill="#ffffff" stroke="#2d3436" stroke-width="2"/>
+    <text x="64" y="73" font-family="Arial, sans-serif" font-size="14" fill="#2d3436">P</text>
+    <line x1="70" y1="52" x2="70" y2="20" stroke="#0984e3" stroke-width="4" marker-end="url(#arrowPr)"/>
+    <text x="24" y="182" font-family="Arial, sans-serif" font-size="14" fill="#2d3436">e7 → e8</text>
+  </g>
+  <g transform="translate(450,60)">
+    <rect width="140" height="160" fill="#dfe6e9" stroke="#636e72" stroke-width="2"/>
+    <rect x="52.5" y="15" width="35" height="35" fill="#ffeaa7"/>
+    <rect x="52.5" y="50" width="35" height="35" fill="#b2bec3"/>
+    <rect x="52.5" y="85" width="35" height="35" fill="#ffeaa7"/>
+    <rect x="52.5" y="120" width="35" height="35" fill="#b2bec3"/>
+    <circle cx="70" cy="32.5" r="16" fill="#ffffff" stroke="#2d3436" stroke-width="2"/>
+    <text x="62" y="38" font-family="Arial, sans-serif" font-size="16" fill="#2d3436">Q</text>
+    <text x="14" y="182" font-family="Arial, sans-serif" font-size="14" fill="#2d3436">대개 퀸으로 승격</text>
+  </g>
+  <text x="294" y="132" font-family="Arial, sans-serif" font-size="26" fill="#e17055">→</text>
+  <text x="250" y="92" font-family="Arial, sans-serif" font-size="18" fill="#2d3436">끝줄 도착 즉시</text>
+  <text x="253" y="118" font-family="Arial, sans-serif" font-size="18" fill="#2d3436">다른 기물로 교체</text>
+  <defs>
+    <marker id="arrowPr" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#2d3436"/>
+    </marker>
+  </defs>
+</svg>
