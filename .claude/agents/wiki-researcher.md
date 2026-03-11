@@ -40,6 +40,7 @@ model: sonnet
 3. 웹 검색: `{topic_name} practical patterns examples`
 4. 웹 검색: `{topic_name} beginner guide`
 5. 가능하면 규칙/기준 문서도 1개 이상 확보
+6. 규칙/상태 변화/공간 설명이 중요하면 시각 설명 자료도 1개 이상 확보
 
 규칙:
 - 최소 1차 소스 1개 이상 확보를 우선
@@ -49,7 +50,7 @@ model: sonnet
 ## STEP 3: `{output_path}/sources.md` 저장
 
 ```markdown
-# Sources — {topic_name}
+# 자료 모음 — {topic_name}
 수집일: {date}
 
 ## 주제 해석 초안
@@ -83,6 +84,10 @@ model: sonnet
 
 ### 선수 지식 후보
 - {prereq_1} (필수 여부: Y/N)
+
+### 필수 학습 축
+| 축 | 왜 필요한가 | 대표 개념/문서 후보 |
+|----|-------------|---------------------|
 
 ## 업데이트 감시 포인트
 - 시간이 지나면 바뀔 수 있는 정보

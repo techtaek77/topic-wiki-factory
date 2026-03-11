@@ -1,7 +1,7 @@
 # wiki-researcher
 
 주제 소스를 수집해 `{output_path}/sources.md`와 `{output_path}/wiki-memory.md`를 채우는 프롬프트.
-`sources.md`는 단순 메모가 아니라 나중에 다시 업데이트할 수 있는 "자료 모음 + 감시 포인트" 문서여야 합니다.
+`sources.md`는 단순 메모가 아니라 나중에 다시 업데이트할 수 있는 "자료 모음 + 학습 축 + 감시 포인트" 문서여야 합니다.
 
 > 이 파일을 Cursor / Codex / 다른 AI에 붙여넣고 실행하세요.
 > Claude Code 사용자는 `@wiki-researcher`로 바로 실행 가능합니다.
@@ -34,6 +34,7 @@ knowledge 유형:
 - `reference_url` 방문 (있으면 가장 우선)
 - 웹 검색: `{topic} fundamentals explained`, `{topic} practical patterns`
 - 웹 검색: `{topic} beginner guide`, `{topic} official rules` 또는 동급의 기준 자료
+- 규칙/상태 변화/공간 설명이 중요한 주제라면 시각 설명이 좋은 자료도 최소 1개 확보
 
 최소 규칙:
 - 공식/1차 소스 1개 이상 확보를 우선
@@ -43,7 +44,7 @@ knowledge 유형:
 **3. `{output_path}/sources.md` 저장**
 
 ```markdown
-# Sources — {topic_name}
+# 자료 모음 — {topic_name}
 수집일: {date}
 
 ## 주제 해석 초안
@@ -72,6 +73,10 @@ knowledge 유형:
 ### 주요 개념
 ### 초보자가 자주 헷갈리는 것
 ### 선수 지식 후보
+
+### 필수 학습 축
+| 축 | 왜 필요한가 | 대표 개념/문서 후보 |
+|----|-------------|---------------------|
 
 ## 업데이트 감시 포인트
 - 시간이 지나면 바뀔 수 있는 정보
