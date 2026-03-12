@@ -36,6 +36,7 @@
 - `sources.md` 기반 자료 모음 + 업데이트 감시 포인트
 
 `examples/hitl-intro/`는 사람 확인 단계가 왜 필요한지, 어떤 체크포인트가 좋은지 같은 개념형 샘플을 보여 준다.
+
 ## 시작하기
 
 빠른 시작은 이렇다.
@@ -119,6 +120,7 @@ hitl:
 5. 수정 대상이 잡히면 `wiki-orchestrator`
 
 특히 knowledge 위키는 초보자용 입문 허브 가이드(`basics`)와 `sources.md`의 자료 모음 / 업데이트 감시 포인트를 같이 유지하는 흐름을 기본으로 잡는다.
+보드 배치, 규칙 예외, 상태 변화처럼 글만 읽어선 잘 안 보이는 내용은 SVG 같은 시각 자료까지 함께 관리하는 쪽을 권장한다.
 
 ### 완료 후 발행
 
@@ -220,6 +222,8 @@ output_path: "../my-chess-wiki/docs"   # 다른 repo
 ## 참고
 
 - `EXPERIMENTS.md` -> 메인 / validation / narrative / agent-simplify 실험 정리
+- `WRITING-STYLE.md` -> 잘 읽히고 기억에 남는 문체 원칙
+- `HYBRID-WRITING-STYLE.md` -> 블로그 말맛과 위키 구조를 섞은 문체 가이드
 - `templates/` -> 문서 구조 예시와 스키마 상세
 - `spec.md` -> 설계 문서
 - `specs/parallel-writer-spec.md` -> 병렬 writer 확장 설계 (Phase 2, 아직 미구현)

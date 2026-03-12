@@ -119,6 +119,7 @@ Recommended maintenance loop:
 
 For knowledge wikis, the default maintenance loop assumes a beginner hub guide such as `basics` plus a continuously maintained `sources.md` with learning resources and update watch points.
 For board layouts, rule exceptions, or state-change-heavy topics, visual assets such as SVG diagrams should be maintained alongside the text.
+
 ### 3. Publish after review
 
 After changing `publish.enabled: true` in `wiki-config.yaml`, run:
@@ -160,6 +161,7 @@ That helps prevent the classic "I meant execution harness, why did I get CI/CD d
 ├── assets/               <- static assets for README
 ├── examples/             <- lightweight sample wiki snapshots
 ├── prompts/              <- prompts for other runtimes
+├── specs/                <- phased design proposals
 ├── templates/            <- document templates and schema examples
 ├── CONTRIBUTING.md
 ├── LICENSE
@@ -173,7 +175,7 @@ That helps prevent the classic "I meant execution harness, why did I get CI/CD d
 ```
 
 The root `wiki-config.yaml` and `wiki-state.json` are intentionally blank starter files.
-Sample generated outputs are not committed as validation artifacts. Real generated files such as `docs/`, `sources.md`, and `wiki-memory.md` are created under your chosen `output_path` after the first run.
+Validation artifacts are not committed. Only curated example outputs under `examples/` are checked in; real generated files such as `docs/`, `sources.md`, and `wiki-memory.md` are created under your chosen `output_path` after the first run.
 
 ```yaml
 output_path: "./output/harness"        # standalone folder
@@ -221,8 +223,10 @@ If you change prompts, keep `.claude/agents/` and `prompts/` in sync.
 ## References
 
 - `EXPERIMENTS.md` -> notes on main / validation / narrative / agent-simplify experiments
+- `WRITING-STYLE.md` -> readable, memorable writing rules for docs and samples
+- `HYBRID-WRITING-STYLE.md` -> a blend of blog voice and wiki structure
 - `templates/` -> document structure and schema examples
 - `spec.md` -> design spec
-- `parallel-writer-spec.md` -> parallel writer extension proposal
+- `specs/parallel-writer-spec.md` -> parallel writer extension proposal (Phase 2, not implemented yet)
 - `tests/README.md` -> orchestrator acceptance harness
 - `plan.md` -> development plan
