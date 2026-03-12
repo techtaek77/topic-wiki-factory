@@ -1,0 +1,48 @@
+{
+  "topic_name": "HITL",
+  "output_path": "./examples/hitl-intro/output",
+  "phase": "done",
+  "scope_confirmed": true,
+  "ia_confirmed": true,
+  "docs_planned": [
+    { "slug": "index", "title": "HITL", "kind": "fixed", "path": "index.md" },
+    { "slug": "prerequisite-map", "title": "먼저 알면 덜 헷갈리는 것", "kind": "fixed", "path": "prerequisite-map.md" },
+    { "slug": "glossary", "title": "용어집", "kind": "fixed", "path": "glossary.md" },
+    { "slug": "faq", "title": "자주 하는 질문", "kind": "fixed", "path": "faq.md" },
+    { "slug": "questions", "title": "아직 헷갈리는 질문", "kind": "fixed", "path": "questions.md" },
+    { "slug": "hitl-basics", "title": "HITL가 뭐고 왜 쓰는가", "kind": "guide", "path": "docs/guides/hitl-basics.md" },
+    { "slug": "checkpoint-design", "title": "어디에 사람 확인을 넣을까", "kind": "concept", "path": "docs/concepts/checkpoint-design.md" },
+    { "slug": "approval-ux", "title": "좋은 승인 요청은 무엇이 다른가", "kind": "concept", "path": "docs/concepts/approval-ux.md" },
+    { "slug": "automation-boundary", "title": "어디까지 자동화하고 어디서 멈출까", "kind": "concept", "path": "docs/concepts/automation-boundary.md" }
+  ],
+  "docs_written": [
+    { "slug": "index", "title": "HITL", "kind": "fixed", "path": "index.md" },
+    { "slug": "prerequisite-map", "title": "먼저 알면 덜 헷갈리는 것", "kind": "fixed", "path": "prerequisite-map.md" },
+    { "slug": "glossary", "title": "용어집", "kind": "fixed", "path": "glossary.md" },
+    { "slug": "faq", "title": "자주 하는 질문", "kind": "fixed", "path": "faq.md" },
+    { "slug": "questions", "title": "아직 헷갈리는 질문", "kind": "fixed", "path": "questions.md" },
+    { "slug": "hitl-basics", "title": "HITL가 뭐고 왜 쓰는가", "kind": "guide", "path": "docs/guides/hitl-basics.md" },
+    { "slug": "checkpoint-design", "title": "어디에 사람 확인을 넣을까", "kind": "concept", "path": "docs/concepts/checkpoint-design.md" },
+    { "slug": "approval-ux", "title": "좋은 승인 요청은 무엇이 다른가", "kind": "concept", "path": "docs/concepts/approval-ux.md" },
+    { "slug": "automation-boundary", "title": "어디까지 자동화하고 어디서 멈출까", "kind": "concept", "path": "docs/concepts/automation-boundary.md" }
+  ],
+  "docs_to_revise": [],
+  "revision_reasons": {},
+  "revision_attempts": {},
+  "docs_blocked": [],
+  "docs_done": [
+    { "slug": "index", "title": "HITL", "kind": "fixed", "path": "index.md" },
+    { "slug": "prerequisite-map", "title": "먼저 알면 덜 헷갈리는 것", "kind": "fixed", "path": "prerequisite-map.md" },
+    { "slug": "glossary", "title": "용어집", "kind": "fixed", "path": "glossary.md" },
+    { "slug": "faq", "title": "자주 하는 질문", "kind": "fixed", "path": "faq.md" },
+    { "slug": "questions", "title": "아직 헷갈리는 질문", "kind": "fixed", "path": "questions.md" },
+    { "slug": "hitl-basics", "title": "HITL가 뭐고 왜 쓰는가", "kind": "guide", "path": "docs/guides/hitl-basics.md" },
+    { "slug": "checkpoint-design", "title": "어디에 사람 확인을 넣을까", "kind": "concept", "path": "docs/concepts/checkpoint-design.md" },
+    { "slug": "approval-ux", "title": "좋은 승인 요청은 무엇이 다른가", "kind": "concept", "path": "docs/concepts/approval-ux.md" },
+    { "slug": "automation-boundary", "title": "어디까지 자동화하고 어디서 멈출까", "kind": "concept", "path": "docs/concepts/automation-boundary.md" }
+  ],
+  "current_doc": null,
+  "last_updated": "2026-03-13T15:20:00+09:00",
+  "started_at": "2026-03-13T14:10:00+09:00"
+}
+
