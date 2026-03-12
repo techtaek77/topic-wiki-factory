@@ -7,6 +7,7 @@
 
 - [chess-intro/](chess-intro/) - knowledge 유형 입문형 위키 예시 (허브형 홈 문서, 입문 가이드, 특수 규칙 SVG 포함)
 - [codex-101/](codex-101/) - tool 유형 입문형 위키 예시 ([changelog.md](codex-101/output/changelog.md) 포함)
+- [hitl-intro/](hitl-intro/) - knowledge 유형 개념 위키 예시 (사람 확인 체크포인트, 승인 설계, 자동화 경계 설명)
 
 각 예시는 아래를 함께 보여준다.
 
@@ -22,5 +23,10 @@
 - [codex-101/wiki-config.yaml](codex-101/wiki-config.yaml)
 - [codex-101/wiki-state.json](codex-101/wiki-state.json)
 - [codex-101/output/index.md](codex-101/output/index.md)
+- [hitl-intro/wiki-config.yaml](hitl-intro/wiki-config.yaml)
+- [hitl-intro/wiki-state.json](hitl-intro/wiki-state.json)
+- [hitl-intro/output/index.md](hitl-intro/output/index.md)
+- [hitl-intro/reviewer-check.md](hitl-intro/reviewer-check.md)
+- [hitl-intro/strict-validation.md](hitl-intro/strict-validation.md)
 
 즉, "무슨 파일이 생기지?"와 "완성되면 어느 정도 길이와 톤이 나오지?"를 한 번에 볼 수 있다.
