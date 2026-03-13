@@ -237,6 +237,7 @@ If you change prompts, keep `.claude/agents/` and `prompts/` in sync.
 - `EXPERIMENTS.md` -> notes on main / validation / narrative / agent-simplify experiments
 - `WRITING-STYLE.md` -> readable, memorable writing rules for docs and samples
 - `HYBRID-WRITING-STYLE.md` -> a blend of blog voice and wiki structure
+- `DIAGRAM-GUIDELINES.md` -> rules for when to use flowcharts, graphs, and SVG explainers
 - `templates/` -> document structure and schema examples
 - `spec.md` -> design spec
 - `specs/parallel-writer-spec.md` -> parallel writer extension proposal (Phase 2, not implemented yet)
