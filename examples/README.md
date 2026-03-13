@@ -5,7 +5,7 @@
 
 ## Included examples
 
-- [chess-intro/](chess-intro/) - knowledge 유형 입문형 위키 예시 (허브형 홈 문서, 입문 가이드, 특수 규칙 SVG 포함)
+- [chess-intro/](chess-intro/) - knowledge 유형 입문형 위키 예시 (허브형 홈 문서, 입문 가이드, 특수 규칙 SVG, 장면형 서사 도입 포함)
 - [codex-101/](codex-101/) - tool 유형 입문형 위키 예시 ([changelog.md](codex-101/output/changelog.md) 포함)
 - [hitl-intro/](hitl-intro/) - knowledge 유형 개념 위키 예시 (사람 확인 체크포인트, 승인 설계, 자동화 경계 설명)
 
@@ -28,4 +28,6 @@
 - [hitl-intro/output/index.md](hitl-intro/output/index.md)
 - [hitl-intro/reviewer-check.md](hitl-intro/reviewer-check.md)
 - [hitl-intro/strict-validation.md](hitl-intro/strict-validation.md)
+
 즉, "무슨 파일이 생기지?"와 "완성되면 어느 정도 길이와 톤이 나오지?"를 한 번에 볼 수 있다.
+최근 샘플은 `그냥 정리된 문서`보다 `책 첫 장처럼 술술 읽히는 문체`도 함께 실험하고 있다.
