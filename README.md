@@ -2,7 +2,7 @@
 
 [English](README.en.md)
 
-어떤 주제든 처음 배우는 사람이 책처럼 따라 읽을 수 있는 입문형 위키를 30분 안에 만드는 AI 에이전트 템플릿이다.
+어떤 주제든 처음 배우는 사람이 책처럼 따라 읽을 수 있는 입문형 위키의 첫 초안을 30분 안에 잡도록 돕는 AI 에이전트 템플릿이다.
 
 > "이게 뭔지" -> "왜 중요한지" -> "무엇부터 알아야 하는지" -> "어떻게 쓰는지"
 > 순서로 읽히게 해서, 처음 보는 사람도 길을 잃지 않게 만든다.
@@ -39,11 +39,17 @@
 
 ## 시작하기
 
-빠른 시작은 이렇다.
+가장 덜 헤매는 권장 경로는 이렇다.
 
 1. `wiki-initializer`로 주제와 출력 경로를 잡는다.
 2. `wiki-orchestrator`로 조사, 작성, 검토를 진행한다.
 3. 필요할 때 `wiki-updater`, `wiki-auditor`, `wiki-publisher`를 돌린다.
+
+현재 가장 매끄러운 런타임은 `Claude Code`다.
+`Cursor`, `Codex`, `GPT`도 쓸 수 있지만 현재는 `prompts/wiki-*.md`를 붙여넣는 best-effort 경로다.
+
+중요: 이 저장소에는 아직 `./wiki create ...` 같은 원커맨드 실행기는 없다.
+현재의 핵심은 "상태 기반 오케스트레이션 + 샘플 + 프롬프트 템플릿"이다.
 
 ### 방법 1. GitHub 템플릿으로 시작
 
@@ -81,6 +87,9 @@ orchestrator는 `wiki-state.json`을 읽고 다음 작업을 정한다.
 중간에 멈췄다가 다시 실행해도 이미 끝난 문서는 다시 쓰지 않는다.
 기본값은 병렬 writer가 아니라 순차 자동 진행이다.
 문서형 작업은 속도보다 상태 안정성이 중요해서다.
+
+다만 현재 orchestrator는 "완성까지 한 번에 도는 실행기"라기보다 상태를 읽고 다음 단계를 정하는 컨트롤러에 가깝다.
+즉, 완전한 원패스 생성기보다 "중단/재개 가능한 진행 관리자"로 이해하는 편이 정확하다.
 
 사람 확인을 줄이고 자동으로 더 빨리 돌리고 싶다면 `hitl.confirm_scope_after_research`, `hitl.confirm_ia_before_writing`을 둘 다 `false`로 두면 된다.
 
@@ -136,6 +145,7 @@ hitl:
 ### 빠른 검증
 
 PR 전에 아래 acceptance harness를 돌리면 orchestrator 기본 흐름 12개 시나리오를 한 번에 확인할 수 있다.
+이 스크립트는 상태 전이 규칙을 검증하는 acceptance checker지, 위키를 끝까지 생성하는 실행기는 아니다.
 
 ```bash
 python3 scripts/orchestrator_harness.py
@@ -186,11 +196,14 @@ output_path: "../my-chess-wiki/docs"   # 다른 repo
 
 | 런타임 | 실행 방법 |
 |--------|---------|
-| Claude Code | `@wiki-initializer` -> `@wiki-orchestrator` 반복 |
-| Cursor | `prompts/wiki-*.md`를 그대로 열어 Agent/Chat 입력창에 붙여넣어 사용 |
-| Codex / GPT | `prompts/wiki-*.md`를 열고 AI에 붙여넣기 |
+| Claude Code | `@wiki-initializer` -> `@wiki-orchestrator` 반복. 현재 primary 경로 |
+| Cursor | `prompts/wiki-*.md`를 그대로 열어 Agent/Chat 입력창에 붙여넣어 사용. 현재 best-effort |
+| Codex / GPT | `prompts/wiki-*.md`를 열고 AI에 붙여넣기. 현재 best-effort |
 
-## 에이전트 목록
+## Advanced: 에이전트 목록
+
+처음에는 전부 외울 필요 없다.
+대부분의 첫 실행은 `wiki-initializer`, `wiki-orchestrator`, 필요 시 `wiki-publisher`만 알아도 시작할 수 있다.
 
 | 에이전트 | 역할 | 실행 시점 |
 |---------|------|---------|
@@ -209,6 +222,7 @@ output_path: "../my-chess-wiki/docs"   # 다른 repo
 ## Known Limitations
 
 - 사실 검증을 완전 자동으로 끝내 주지는 않는다. 최종 검수는 사람이 해야 한다.
+- 원커맨드 실행기나 완전 자동 러너는 아직 없다. 현재는 상태 기반 orchestrator를 반복 실행하는 방식이다.
 - 첫 버전은 GitHub Markdown 기준으로 설계돼 있다.
 - 모든 주제에서 완벽한 IA를 자동 보장하지 않는다.
 - 다국어 번역, CMS, 협업 권한 관리까지는 아직 범위 밖이다.

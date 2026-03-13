@@ -16,6 +16,9 @@
 python3 scripts/orchestrator_harness.py
 ```
 
+이건 실행 하네스라기보다 acceptance checker에 가깝다.
+즉, 위키를 처음부터 끝까지 생성하는 러너가 아니라, 저장소가 약속한 orchestrator 규칙이 문서와 fixture에서 일관되는지 확인하는 스크립트다.
+
 현재 포함된 시나리오:
 
 - `init`에서 `sources.md`가 없으면 `wiki-researcher`로 가는지
@@ -27,5 +30,5 @@ python3 scripts/orchestrator_harness.py
 - revision limit 초과 시 `docs_blocked`로 빠지는지
 - `reviewing` 이후 `publishing` / `done` 분기가 맞는지
 
-이 하네스는 "모든 런타임에서 실제 LLM이 정확히 똑같이 행동한다"를 증명하지는 않는다.
+이 checker는 "모든 런타임에서 실제 LLM이 정확히 똑같이 행동한다"를 증명하지는 않는다.
 대신 최소한 저장소가 약속한 규칙이 문서에서 빠지거나 서로 어긋나는 건 빨리 잡아낸다.

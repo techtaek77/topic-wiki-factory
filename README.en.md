@@ -2,7 +2,7 @@
 
 [Korean](README.md)
 
-An AI-agent template for generating a beginner-friendly wiki that reads more like a short book than a loose pile of notes, in about 30 minutes.
+An AI-agent template that helps you produce a first draft of a beginner-friendly wiki, one that reads more like a short book than a loose pile of notes, in about 30 minutes.
 
 > "What is this?" -> "Why does it matter?" -> "What should I learn first?" -> "How do I use it?"
 > in that order, so even a complete beginner can follow the wiki.
@@ -38,11 +38,17 @@ It currently includes three lightweight examples: `examples/chess-intro/`, `exam
 
 ## Getting Started
 
-The quick version looks like this:
+The least-confusing recommended path looks like this:
 
 1. Run `wiki-initializer` to define the topic and output path.
 2. Run `wiki-orchestrator` to drive research, writing, and review.
 3. Use `wiki-updater`, `wiki-auditor`, and `wiki-publisher` when needed.
+
+Right now, the smoothest runtime is `Claude Code`.
+`Cursor`, `Codex`, and `GPT` are also supported, but currently through a best-effort paste-the-prompt workflow.
+
+Important: this repository does not yet include a one-command runner such as `./wiki create ...`.
+Today, the core value is "state-based orchestration + prompts + sample outputs", not a fully automated CLI.
 
 ### Option 1. Start from the GitHub template
 
@@ -79,6 +85,7 @@ The initializer asks 11 setup questions for topic definition, exclusions, seed m
 The orchestrator reads `wiki-state.json` and decides what to do next.
 If the process stops halfway through, rerunning it will skip documents that are already done.
 The default execution model is sequential automation, not parallel writer execution.
+At the moment, the orchestrator is closer to a resumable controller than a one-pass runner that goes from init to done in a single command.
 
 If you want the fastest near-automatic flow, set both flags to `false` in `wiki-config.yaml`.
 
@@ -140,6 +147,7 @@ python3 scripts/orchestrator_harness.py
 ```
 
 It covers 12 orchestrator scenarios.
+This script is an acceptance checker for state-transition rules, not a full pipeline runner that generates a wiki end to end.
 
 ## Handling ambiguous topic names
 
@@ -187,11 +195,14 @@ output_path: "../my-chess-wiki/docs"   # inside another repository
 
 | Runtime | How to use |
 |---------|------------|
-| Claude Code | run `@wiki-initializer` -> repeat `@wiki-orchestrator` |
-| Cursor | open `prompts/wiki-*.md` and paste them directly into the Agent/Chat input |
-| Codex / GPT | open `prompts/wiki-*.md` and paste them into your AI |
+| Claude Code | run `@wiki-initializer` -> repeat `@wiki-orchestrator`. Current primary path |
+| Cursor | open `prompts/wiki-*.md` and paste them directly into the Agent/Chat input. Current best-effort path |
+| Codex / GPT | open `prompts/wiki-*.md` and paste them into your AI. Current best-effort path |
 
-## Agent list
+## Advanced: Agent list
+
+You do not need to memorize all of these to get started.
+For a first run, `wiki-initializer`, `wiki-orchestrator`, and optionally `wiki-publisher` are usually enough.
 
 | Agent | Role | When to run |
 |------|------|-------------|
@@ -210,6 +221,7 @@ output_path: "../my-chess-wiki/docs"   # inside another repository
 ## Known Limitations
 
 - It does not fully automate fact verification. A human review is still required.
+- It does not yet ship with a one-command runner or a fully automatic end-to-end pipeline.
 - The first version is designed around GitHub Markdown publishing.
 - It does not guarantee a perfect IA for every topic automatically.
 - Multilingual translation, CMS features, and permission systems are outside the current scope.
