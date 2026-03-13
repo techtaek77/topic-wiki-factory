@@ -231,10 +231,14 @@ docs_planned:
     title: "Harness"
     kind: "fixed"
     path: "index.md"
+    priority: 100
+    depends_on: []
   - slug: "quick-start"
     title: "처음 30분 가이드"
     kind: "guide"
     path: "docs/guides/quick-start.md"
+    priority: 90
+    depends_on: ["index"]
 docs_written:
   - slug: "index"
     title: "Harness"
@@ -255,12 +259,16 @@ last_updated:   "2026-03-09T10:00:00"
 ```
 
 orchestrator는 이 파일을 읽고 `docs_planned.slug - docs_done.slug`가 0이 될 때까지 writer를 호출한다.
+기본 선택 규칙은 `docs_to_revise 우선 -> depends_on 충족 -> priority 높은 순 -> docs_planned 원래 순서`다.
 중단 후 재실행해도 완료된 문서는 건너뛰고 이어서 진행한다.
 updater / auditor / freshness가 이슈를 발견하면 `docs_to_revise`에 추가하고 orchestrator를 호출한다.
 
 호환성 규칙:
 - `docs_written`, `docs_done`의 정식 저장 형식은 `{slug,title,kind,path}` 객체 배열이다.
 - 예전 샘플처럼 문자열 배열이 들어오면 orchestrator / reviewer는 `docs_planned`를 기준으로 같은 `slug` 객체로 먼저 정규화한다.
+- `docs_planned` 객체에는 필요하면 `priority`, `depends_on`를 함께 둘 수 있다.
+  - `priority`: 0~100 정수 권장, 기본값 50
+  - `depends_on`: 먼저 끝나야 할 문서 slug 배열, 기본값 `[]`
 
 ### Publish Target
 

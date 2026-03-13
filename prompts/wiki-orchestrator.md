@@ -46,7 +46,7 @@
 | researching | `sources.md`가 생겼는지 확인 → 있으면 phase를 `"scoping"`으로 |
 | scoping | `hitl.confirm_scope_after_research=true`면 "주제 해석 초안"을 보여주고 사람 확인 요청. false면 자동으로 `scope_confirmed=true`, phase를 `"planning"`으로 |
 | planning | IA 설계 후 `docs_planned` 저장. `hitl.confirm_ia_before_writing=true`면 사람 확인 요청, false면 자동으로 `ia_confirmed=true`, phase를 `"writing"`으로 |
-| writing | `docs_to_revise` 먼저 처리 → 없으면 아직 안 쓴 문서 1개 선택 → `current_doc` 설정 후 `wiki-writer {slug}` 실행 지시 |
+| writing | `docs_to_revise` 먼저 처리 → 없으면 dependency-ready 후보 중 priority 높은 문서 1개 선택 → `current_doc` 설정 후 `wiki-writer {slug}` 실행 지시 |
 | reviewing | 들어가기 전에 `sources.md`의 필수 학습 축 공백이 있으면 `docs_planned`를 먼저 보강하고 `"writing"`으로 되돌림 |
 | reviewing | `wiki-reviewer` 결과 반영 후 `docs_to_revise`가 있으면 `"writing"`, 없고 `publish.enabled=true`면 `"publishing"`, 아니면 `"done"` |
 | publishing | 먼저 `wiki-publish-preflight` 실행 지시 → READY면 `wiki-publisher`, REVISE면 수정 후 재시도 |
@@ -87,16 +87,23 @@
 - `sources.md`의 "초보자 추천 학습 자료", "업데이트 감시 포인트"도 함께 읽고 허브 문서와 유지보수 포인트를 설계
 - 초보자가 자주 찾는 규칙/예외가 있으면 `index`와 입문 guide에서 바로 점프할 수 있게 관련 문서를 허브 가까이에 배치
 - 모든 slug는 kebab-case
+- 각 문서 객체에는 필요하면 `priority`, `depends_on`를 함께 저장할 수 있다
+  - `priority`: 0~100 권장, 기본값 50
+  - `depends_on`: 먼저 끝나야 할 선수 문서 slug 배열
+- 기본 원칙:
+  - `index`, `prerequisite-map`, `glossary` 같은 허브/지도/용어 문서는 높게 둔다
+  - `quick-start`는 높게 두되, 대개 `index`와 `glossary` 다음에 오게 설계한다
+  - 응용 guide는 관련 concept / basics / quick-start 뒤에 오게 `depends_on`를 둔다
 
 저장 형식:
 
 ```json
 "docs_planned": [
-  {"slug": "index", "title": "체스", "kind": "fixed", "path": "index.md"},
-  {"slug": "prerequisite-map", "title": "시작 전에 알아야 할 것", "kind": "fixed", "path": "prerequisite-map.md"},
-  {"slug": "basics", "title": "체스는 어떻게 돌아가나", "kind": "guide", "path": "docs/guides/basics.md"},
-  {"slug": "quick-start", "title": "처음 30분 가이드", "kind": "guide", "path": "docs/guides/quick-start.md"},
-  {"slug": "rook", "title": "룩", "kind": "concept", "path": "docs/concepts/rook.md"}
+  {"slug": "index", "title": "체스", "kind": "fixed", "path": "index.md", "priority": 100, "depends_on": []},
+  {"slug": "prerequisite-map", "title": "시작 전에 알아야 할 것", "kind": "fixed", "path": "prerequisite-map.md", "priority": 95, "depends_on": ["index"]},
+  {"slug": "basics", "title": "체스는 어떻게 돌아가나", "kind": "guide", "path": "docs/guides/basics.md", "priority": 92, "depends_on": ["index", "glossary"]},
+  {"slug": "quick-start", "title": "처음 30분 가이드", "kind": "guide", "path": "docs/guides/quick-start.md", "priority": 90, "depends_on": ["index", "glossary"]},
+  {"slug": "rook", "title": "룩", "kind": "concept", "path": "docs/concepts/rook.md", "priority": 80, "depends_on": ["basics", "glossary"]}
 ]
 ```
 
@@ -110,7 +117,11 @@ IA 설계 후:
 **5. 문서 선택 규칙**
 
 - `docs_to_revise`에 있는 문서를 최우선
-- 그다음 `docs_planned` 중 `docs_done.slug`, `docs_blocked`에 없는 문서 선택
+- 그다음 `docs_planned` 중 `docs_done.slug`, `docs_blocked`에 없는 문서를 후보로 본다
+- `depends_on`가 있으면 그 slug가 모두 `docs_done`에 있는 후보를 우선 선택한다
+- dependency-ready 후보가 여러 개면 `priority` 높은 순으로 선택한다
+- `priority`가 같으면 `docs_planned`에 나온 원래 순서를 유지한다
+- dependency-ready 후보가 하나도 없으면 원래 순서 기준 첫 미완료 문서로 fallback한다
 - 선택한 문서는 `current_doc`에 동일한 객체로 저장
 - 모든 문서가 `docs_done.slug` 또는 `docs_blocked`에 있으면 phase를 `"reviewing"`으로 변경
 - 기본 모델은 "문서 1개씩 선택하는 순차 자동 진행"이다. 병렬 writer 실행은 별도 확장이 필요하다.

@@ -72,7 +72,10 @@ phase = "planning"
 
 phase = "writing"
   → docs_to_revise 먼저 처리
-  → 없으면 docs_planned - docs_done - docs_blocked에서 미작성 문서 1개 선택
+  → 없으면 docs_planned - docs_done - docs_blocked에서 후보 추림
+  → depends_on가 있으면 docs_done에 모두 들어온 문서만 우선 선택
+  → 그 안에서 priority 높은 순으로 1개 선택, 동점이면 docs_planned 원래 순서 유지
+  → dependency-ready 후보가 하나도 없으면 docs_planned 원래 순서 기준의 첫 미완료 문서로 fallback
   → 선택한 문서를 current_doc에 저장
   → wiki-writer 호출 ({slug})
   → 남은 미작성 없으면 phase = "reviewing"
@@ -108,6 +111,13 @@ phase = "done"
   - 권장 path: `docs/guides/basics.md`
   - 역할: "이게 무엇인가 / 핵심 규칙·구성요소 / 처음엔 무엇을 할까"를 먼저 해결하는 입문 허브
 - `depth_level`에 따라 총 문서 수 목표를 맞춤
+- 각 문서 객체에는 필요하면 `priority`, `depends_on`를 함께 저장할 수 있다
+  - `priority`: 0~100 권장, 기본값 50
+  - `depends_on`: 먼저 끝나야 할 선수 문서 slug 배열
+- 기본 원칙:
+  - `index`, `prerequisite-map`, `glossary`처럼 허브/지도/용어 문서는 우선순위를 높게 둔다
+  - `quick-start`는 높게 두되, 보통 `index`와 `glossary` 뒤에 오게 설계한다
+  - 응용 guide는 관련 concept / basics / quick-start 뒤에 오게 `depends_on`를 설정한다
 - `sources.md`의 핵심 개념 요약에서 concepts 후보를 뽑음
 - `sources.md`의 `주제 해석 초안`과 `seed_material_paths`를 우선 반영
 - `sources.md`의 `필수 학습 축`을 읽고 축마다 최소 1개 대표 문서를 확보

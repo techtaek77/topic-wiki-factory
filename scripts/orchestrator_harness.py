@@ -63,8 +63,34 @@ def first_unfinished_doc(state):
     return None
 
 
+def doc_is_dependency_ready(doc, done_slugs):
+    dependencies = doc.get("depends_on", [])
+    return all(slug in done_slugs for slug in dependencies)
+
+
+def choose_priority_doc(state):
+    done = set(doc_slugs(state["docs_done"]))
+    blocked = set(doc_slugs(state["docs_blocked"]))
+    eligible = []
+
+    for index, doc in enumerate(state["docs_planned"]):
+        slug = doc["slug"]
+        if slug in done or slug in blocked:
+            continue
+        if not doc_is_dependency_ready(doc, done):
+            continue
+        priority = doc.get("priority", 50)
+        eligible.append((-priority, index, doc))
+
+    if eligible:
+        eligible.sort(key=lambda item: (item[0], item[1]))
+        return deepcopy(eligible[0][2])
+
+    return first_unfinished_doc(state)
+
+
 def choose_next_action_for_writing(state):
-    next_doc = state["docs_to_revise"][0] if state["docs_to_revise"] else first_unfinished_doc(state)
+    next_doc = state["docs_to_revise"][0] if state["docs_to_revise"] else choose_priority_doc(state)
     if next_doc is None:
         state["phase"] = "reviewing"
         state["current_doc"] = None

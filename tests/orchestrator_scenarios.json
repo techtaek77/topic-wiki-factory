@@ -220,6 +220,90 @@
     }
   },
   {
+    "name": "writing_prefers_higher_priority_ready_doc",
+    "config": {
+      "hitl": {
+        "confirm_scope_after_research": false,
+        "confirm_ia_before_writing": false
+      },
+      "publish": {
+        "enabled": false
+      },
+      "max_revision_attempts": 3
+    },
+    "state": {
+      "phase": "writing",
+      "scope_confirmed": true,
+      "ia_confirmed": true,
+      "docs_planned": [
+        { "slug": "index", "title": "Harness", "kind": "fixed", "path": "index.md", "priority": 100, "depends_on": [] },
+        { "slug": "glossary", "title": "Glossary", "kind": "fixed", "path": "glossary.md", "priority": 70, "depends_on": ["index"] },
+        { "slug": "quick-start", "title": "Quick Start", "kind": "guide", "path": "docs/guides/quick-start.md", "priority": 90, "depends_on": ["index", "glossary"] }
+      ],
+      "docs_written": [],
+      "docs_to_revise": [],
+      "revision_reasons": {},
+      "revision_attempts": {},
+      "docs_blocked": [],
+      "docs_done": [
+        { "slug": "index", "title": "Harness", "kind": "fixed", "path": "index.md", "priority": 100, "depends_on": [] }
+      ],
+      "current_doc": null
+    },
+    "context": {
+      "sources_exists": true
+    },
+    "expected": {
+      "phase": "writing",
+      "action": "wiki-writer:glossary",
+      "scope_confirmed": true,
+      "ia_confirmed": true,
+      "current_doc": "glossary"
+    }
+  },
+  {
+    "name": "writing_keeps_dependency_order_before_priority",
+    "config": {
+      "hitl": {
+        "confirm_scope_after_research": false,
+        "confirm_ia_before_writing": false
+      },
+      "publish": {
+        "enabled": false
+      },
+      "max_revision_attempts": 3
+    },
+    "state": {
+      "phase": "writing",
+      "scope_confirmed": true,
+      "ia_confirmed": true,
+      "docs_planned": [
+        { "slug": "index", "title": "Harness", "kind": "fixed", "path": "index.md", "priority": 100, "depends_on": [] },
+        { "slug": "glossary", "title": "Glossary", "kind": "fixed", "path": "glossary.md", "priority": 70, "depends_on": ["index"] },
+        { "slug": "quick-start", "title": "Quick Start", "kind": "guide", "path": "docs/guides/quick-start.md", "priority": 95, "depends_on": ["index", "glossary"] }
+      ],
+      "docs_written": [],
+      "docs_to_revise": [],
+      "revision_reasons": {},
+      "revision_attempts": {},
+      "docs_blocked": [],
+      "docs_done": [
+        { "slug": "index", "title": "Harness", "kind": "fixed", "path": "index.md", "priority": 100, "depends_on": [] }
+      ],
+      "current_doc": null
+    },
+    "context": {
+      "sources_exists": true
+    },
+    "expected": {
+      "phase": "writing",
+      "action": "wiki-writer:glossary",
+      "scope_confirmed": true,
+      "ia_confirmed": true,
+      "current_doc": "glossary"
+    }
+  },
+  {
     "name": "writing_prioritizes_revision_queue",
     "config": {
       "hitl": {

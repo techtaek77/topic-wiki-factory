@@ -10,15 +10,15 @@
   "ia_confirmed": false,
 
   "docs_planned": [
-    { "slug": "index", "title": "Harness", "kind": "fixed", "path": "index.md" },
-    { "slug": "prerequisite-map", "title": "시작 전에 알아야 할 것", "kind": "fixed", "path": "prerequisite-map.md" },
-    { "slug": "quick-start", "title": "처음 30분 가이드", "kind": "guide", "path": "docs/guides/quick-start.md" },
-    { "slug": "pipeline", "title": "Pipeline", "kind": "concept", "path": "docs/concepts/pipeline.md" },
-    { "slug": "stage", "title": "Stage", "kind": "concept", "path": "docs/concepts/stage.md" },
-    { "slug": "first-pipeline", "title": "첫 Pipeline 만들기", "kind": "guide", "path": "docs/guides/first-pipeline.md" },
-    { "slug": "glossary", "title": "용어집", "kind": "fixed", "path": "glossary.md" },
-    { "slug": "faq", "title": "자주 하는 질문", "kind": "fixed", "path": "faq.md" },
-    { "slug": "changelog", "title": "변경 이력", "kind": "fixed", "path": "changelog.md" }
+    { "slug": "index", "title": "Harness", "kind": "fixed", "path": "index.md", "priority": 100, "depends_on": [] },
+    { "slug": "prerequisite-map", "title": "시작 전에 알아야 할 것", "kind": "fixed", "path": "prerequisite-map.md", "priority": 95, "depends_on": ["index"] },
+    { "slug": "quick-start", "title": "처음 30분 가이드", "kind": "guide", "path": "docs/guides/quick-start.md", "priority": 90, "depends_on": ["index", "glossary"] },
+    { "slug": "pipeline", "title": "Pipeline", "kind": "concept", "path": "docs/concepts/pipeline.md", "priority": 80, "depends_on": ["index", "glossary"] },
+    { "slug": "stage", "title": "Stage", "kind": "concept", "path": "docs/concepts/stage.md", "priority": 78, "depends_on": ["index", "glossary"] },
+    { "slug": "first-pipeline", "title": "첫 Pipeline 만들기", "kind": "guide", "path": "docs/guides/first-pipeline.md", "priority": 85, "depends_on": ["quick-start", "pipeline", "stage"] },
+    { "slug": "glossary", "title": "용어집", "kind": "fixed", "path": "glossary.md", "priority": 92, "depends_on": ["index"] },
+    { "slug": "faq", "title": "자주 하는 질문", "kind": "fixed", "path": "faq.md", "priority": 70, "depends_on": ["quick-start"] },
+    { "slug": "changelog", "title": "변경 이력", "kind": "fixed", "path": "changelog.md", "priority": 60, "depends_on": ["quick-start"] }
   ],
 
   "docs_written": [
