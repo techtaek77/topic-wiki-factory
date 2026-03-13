@@ -489,5 +489,49 @@
       "ia_confirmed": true,
       "current_doc": null
     }
+  },
+  {
+    "name": "publishing_after_success_finishes",
+    "config": {
+      "hitl": {
+        "confirm_scope_after_research": false,
+        "confirm_ia_before_writing": false
+      },
+      "publish": {
+        "enabled": true
+      },
+      "max_revision_attempts": 3
+    },
+    "state": {
+      "phase": "publishing",
+      "scope_confirmed": true,
+      "ia_confirmed": true,
+      "docs_planned": [
+        { "slug": "index", "title": "Harness", "kind": "fixed", "path": "index.md" }
+      ],
+      "docs_written": [
+        { "slug": "index", "title": "Harness", "kind": "fixed", "path": "index.md" }
+      ],
+      "docs_to_revise": [],
+      "revision_reasons": {},
+      "revision_attempts": {},
+      "docs_blocked": [],
+      "docs_done": [
+        { "slug": "index", "title": "Harness", "kind": "fixed", "path": "index.md" }
+      ],
+      "current_doc": null
+    },
+    "context": {
+      "sources_exists": true,
+      "publish_preflight_ready": true,
+      "publish_succeeded": true
+    },
+    "expected": {
+      "phase": "done",
+      "action": "complete",
+      "scope_confirmed": true,
+      "ia_confirmed": true,
+      "current_doc": null
+    }
   }
 ]

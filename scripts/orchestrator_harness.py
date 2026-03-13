@@ -113,17 +113,20 @@ def handle_scoping(state, hitl):
 
 def evaluate(config, state, context):
     state = deepcopy(state)
-    state["docs_planned"] = normalize_doc_list(state.get("docs_planned"), state.get("docs_planned", []))
-    state["docs_written"] = normalize_doc_list(state.get("docs_written"), state["docs_planned"])
-    state["docs_to_revise"] = normalize_doc_list(state.get("docs_to_revise"), state["docs_planned"])
-    state["docs_blocked"] = normalize_doc_list(state.get("docs_blocked"), state["docs_planned"])
-    state["docs_done"] = normalize_doc_list(state.get("docs_done"), state["docs_planned"])
+    planned_docs = normalize_doc_list(state.get("docs_planned"), state.get("docs_planned", []))
+    state["docs_planned"] = planned_docs
+    state["docs_written"] = normalize_doc_list(state.get("docs_written"), planned_docs)
+    state["docs_to_revise"] = normalize_doc_list(state.get("docs_to_revise"), planned_docs)
+    state["docs_blocked"] = normalize_doc_list(state.get("docs_blocked"), planned_docs)
+    state["docs_done"] = normalize_doc_list(state.get("docs_done"), planned_docs)
     state["current_doc"] = deepcopy(state.get("current_doc"))
 
     hitl = config.get("hitl", {})
     publish = config.get("publish", {})
     max_revision_attempts = config.get("max_revision_attempts", 3)
     sources_exists = context.get("sources_exists", False)
+    publish_preflight_ready = context.get("publish_preflight_ready", False)
+    publish_succeeded = context.get("publish_succeeded", False)
 
     promote_blocked_docs(state, max_revision_attempts)
 
@@ -168,7 +171,14 @@ def evaluate(config, state, context):
             action = "complete"
 
     elif phase == "publishing":
-        action = "wiki-publish-preflight"
+        if publish_succeeded:
+            state["phase"] = "done"
+            state["current_doc"] = None
+            action = "complete"
+        elif publish_preflight_ready:
+            action = "wiki-publisher"
+        else:
+            action = "wiki-publish-preflight"
 
     elif phase == "done":
         action = "complete"
