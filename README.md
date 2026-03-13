@@ -238,6 +238,7 @@ output_path: "../my-chess-wiki/docs"   # 다른 repo
 - `EXPERIMENTS.md` -> 메인 / validation / narrative / agent-simplify 실험 정리
 - `WRITING-STYLE.md` -> 잘 읽히고 기억에 남는 문체 원칙
 - `HYBRID-WRITING-STYLE.md` -> 블로그 말맛과 위키 구조를 섞은 문체 가이드
+- `DIAGRAM-GUIDELINES.md` -> 언제 flowchart / graph / SVG를 넣을지 정하는 도해 가이드
 - `templates/` -> 문서 구조 예시와 스키마 상세
 - `spec.md` -> 설계 문서
 - `specs/parallel-writer-spec.md` -> 병렬 writer 확장 설계 (Phase 2, 아직 미구현)

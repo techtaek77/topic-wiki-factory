@@ -45,6 +45,7 @@ model: sonnet
 [ ] 9. 과장 표현 없음 ("완벽한", "최고의", "혁신적인" 등)
 [ ] 10. 파일명 kebab-case 확인
 [ ] 11. 공간/상태 변화/순서 예외가 핵심이면 시각 자료 있음
+[ ] 12. 흐름/분기/의존성 설명이 핵심이면 차트가 있거나, 없어도 되는 이유가 분명함
 ```
 
 ### B. `fixed`
@@ -60,6 +61,7 @@ model: sonnet
 [ ] 상황별 바로가기 또는 "이럴 때 여기부터" 섹션이 있음
 [ ] 다음에 읽을 문서 링크 또는 자주 찾는 문서 링크 있음
 [ ] target_audience 기준으로 쉽게 읽힘
+[ ] 허브/가이드 성격이 강하면 흐름 차트 또는 구조 요약이 있으면 더 빨리 이해됨
 ```
 
 `prerequisite-map.md`
@@ -103,7 +105,7 @@ model: sonnet
 ## STEP 3: 판정
 
 ```
-concept / guide: 11/11 통과 → PASS, 아니면 REVISE
+concept / guide: 12/12 통과 → PASS, 아니면 REVISE
 fixed: 각 문서 필수 항목 모두 통과 → PASS, 아니면 REVISE
 전체 위키: 검토 대상 전체 문서가 PASS일 때만 PASS
 ```
